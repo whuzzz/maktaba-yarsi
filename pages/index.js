@@ -22,7 +22,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <p className={{}}>{data[0]?.content[5]?.text}</p>
+        <p className="bg-red-600 text-white">{data[0]?.content[5]?.text}</p>
       </main>
     </>
   );
