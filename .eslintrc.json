@@ -1,3 +1,28 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "prettier",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@next/next/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended",
+    "plugin:react/jsx-runtime"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "rules": {
+    "no-console": "warn",
+    "react/prop-types": "off",
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "(useMyCustomHook|useMyOtherCustomHook)"
+      }
+    ]
+  }
 }
