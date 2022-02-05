@@ -4,10 +4,10 @@
 
 @layer base {
   body {
-    @apply font-mulish font-medium;
+    @apply font-poppins selection:bg-cyan-400 selection:text-dark;
   }
 
   .book-page > p {
-    @apply text-red-700;
+    @apply indent-8 text-justify;
   }
 }
