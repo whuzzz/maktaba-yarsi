@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import { paragrafFormatter } from '../utils/helpers';
 
 export default function Home() {
   const [data, setData] = useState([]);
@@ -12,7 +13,7 @@ export default function Home() {
     };
     test();
   }, []);
-  console.log(data);
+
   return (
     <>
       <Head>
@@ -21,8 +22,14 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <p className="bg-red-600 text-white">{data[0]?.content[5]?.text}</p>
+      <main className="w-full m-auto space-y-5">
+        {data[0]?.content.map(({ text }, index) => (
+          <div
+            key={index}
+            className="book-page w-1/2 p-4 m-auto text-[#94A3B8] bg-[#0F172A]"
+            dangerouslySetInnerHTML={{ __html: paragrafFormatter(text) }}
+          />
+        ))}
       </main>
     </>
   );

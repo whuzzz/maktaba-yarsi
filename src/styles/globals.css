@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-mulish font-medium;
+  }
+
+  .book-page > p {
+    @apply text-red-700;
+  }
+}
