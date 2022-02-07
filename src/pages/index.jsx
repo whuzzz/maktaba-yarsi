@@ -2,12 +2,19 @@
 import Head from "next/head";
 import { useState } from "react";
 import Sidebar from "../components/layouts/Sidebar";
+import { MdNavigateNext, MdLastPage } from "react-icons/md";
 
 export default function Home({ data }) {
   // eslint-disable-next-line no-unused-vars
   const [book, setBook] = useState(data);
   const [pages, setPages] = useState(book.content[0].page);
   const { page, text } = book.content.find((item) => item.page === pages);
+  const [pageInput, setPageInput] = useState(pages);
+
+  const navigateTo = (page) => {
+    setPages(page);
+    setPageInput(page);
+  };
 
   return (
     <>
@@ -19,11 +26,67 @@ export default function Home({ data }) {
 
       <main className="flex w-full pt-14 text-slate-700 duration-150 dark:text-slate-400">
         <Sidebar data={book.tableOfContents} callback={setPages} />
-        <div className="ml-auto w-9/12 p-20 dark:bg-slate-900">
+        <div className="ml-auto  w-9/12 p-20 dark:bg-slate-900">
+          <div className="flex items-center justify-center">
+            <MdLastPage
+              className="rotate-180 cursor-pointer text-3xl"
+              onClick={() => navigateTo(book.content[0].page)}
+            />
+            <MdNavigateNext
+              className="rotate-180 cursor-pointer text-3xl"
+              onClick={() => navigateTo(page - 1)}
+            />
+            <input
+              className="w-10 text-center text-lg dark:bg-slate-900"
+              type="number"
+              name="page"
+              id="page"
+              value={pageInput}
+              onChange={(e) => setPageInput(e.target.value)}
+            />
+            <MdNavigateNext
+              className="cursor-pointer text-3xl"
+              onClick={() => navigateTo(page + 1)}
+            />
+            <MdLastPage
+              className="cursor-pointer text-3xl"
+              onClick={() =>
+                navigateTo(book.content[book.content.length - 1].page)
+              }
+            />
+          </div>
           <div
-            className="book-page"
+            className="book-page my-3 border-y border-black/10 py-8 dark:border-gray-800"
             dangerouslySetInnerHTML={{ __html: text }}
           />
+          <div className="flex items-center justify-center">
+            <MdLastPage
+              className="rotate-180 cursor-pointer text-3xl"
+              onClick={() => navigateTo(book.content[0].page)}
+            />
+            <MdNavigateNext
+              className="rotate-180 cursor-pointer text-3xl"
+              onClick={() => navigateTo(page - 1)}
+            />
+            <input
+              className="w-10 text-center text-lg"
+              type="number"
+              name="page"
+              id="page"
+              value={pageInput}
+              onChange={(e) => setPageInput(e.target.value)}
+            />
+            <MdNavigateNext
+              className="cursor-pointer text-3xl"
+              onClick={() => navigateTo(page + 1)}
+            />
+            <MdLastPage
+              className="cursor-pointer text-3xl"
+              onClick={() =>
+                navigateTo(book.content[book.content.length - 1].page)
+              }
+            />
+          </div>
         </div>
       </main>
     </>
