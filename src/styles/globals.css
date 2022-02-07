@@ -2,12 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+/**
+ * 
+ * p          Paragraf
+ * strong     Judul/Heading
+ * summary    Lanjutan Paragraf yang terpotong
+ * p[dir=rtl] Bahasa Arab
+ * q          Untuk Arti dari bahasa Arab
+ * 
+ */
+
 @layer base {
+  .dark-theme {
+    color-scheme: dark;
+  }
+
   body {
-    @apply font-poppins selection:bg-cyan-400 selection:text-dark;
+    @apply font-poppins text-slate-700 selection:bg-cyan-400 selection:text-slate-700 dark:text-slate-400;
+  }
+
+  nav > ul > li {
+    @apply cursor-pointer font-medium hover:text-green-600 hover:dark:text-green-500;
   }
 
   .book-page > p {
-    @apply indent-8 text-justify;
+    @apply mb-3 text-justify indent-8;
+  }
+
+  .book-page > strong {
+    @apply block indent-0 font-sans text-lg text-slate-900 dark:text-slate-200;
+  }
+
+  .book-page > summary {
+    @apply mb-3 list-none text-justify;
+  }
+
+  .book-page > p[dir="rtl"] {
+    font-family: LPMQ, "Traditional Arabic", Tahoma, sans-serif;
+    direction: rtl;
+    unicode-bidi: embed;
+    @apply ml-auto select-all bg-transparent indent-0 text-2xl leading-[3.5rem] text-slate-800 dark:text-slate-300;
+  }
+
+  .book-page > ul {
+    @apply mb-3;
+  }
+
+  .book-page > ul > li {
+    @apply list-inside list-disc indent-8;
+  }
+
+  .book-page > q {
+    @apply mb-3 block select-all text-justify italic;
+  }
+
+  @font-face {
+    font-family: "LPMQ";
+    src: url("https://uminabdillah.github.io/fonts/lpmq.eot");
+    src: url("https://uminabdillah.github.io/fonts/lpmq.eot?#iefix")
+        format("embedded-opentype"),
+      url("https://uminabdillah.github.io/fonts/lpmq.ttf") format("truetype");
+    font-weight: 400;
+    font-weight: normal;
+    font-display: swap;
   }
 }
