@@ -1,18 +1,11 @@
-import Head from 'next/head';
-import { useEffect, useState } from 'react';
-import { paragrafFormatter } from '../utils/helpers';
+import Head from "next/head";
+import { useState } from "react";
+import Sidebar from "../components/layouts/Sidebar";
 
-export default function Home() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    const test = async () => {
-      const res = await fetch('http://localhost:5000/books');
-      const req = await res.json();
-      setData(req);
-    };
-    test();
-  }, []);
+export default function Home({ data }) {
+  const [book, setBook] = useState(data);
+  const [pages, setPages] = useState(0);
+  const { page, text } = book.content[pages];
 
   return (
     <>
@@ -22,15 +15,24 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="w-full m-auto space-y-5">
-        {data[0]?.content.map(({ text }, index) => (
-          <div
-            key={index}
-            className="book-page w-1/2 p-4 m-auto text-[#94A3B8] bg-[#0F172A]"
-            dangerouslySetInnerHTML={{ __html: paragrafFormatter(text) }}
-          />
-        ))}
+      <main className="flex w-full pt-14 text-slate-700 duration-150 dark:text-slate-400">
+        <Sidebar data={book.tableOfContents} />
+        <div
+          className="book-page ml-auto w-9/12 p-20 dark:bg-slate-900"
+          dangerouslySetInnerHTML={{ __html: text }}
+        />
       </main>
     </>
   );
+}
+
+export async function getStaticProps() {
+  const res = await fetch(
+    `http://localhost:5000/books/6ec0bd7f-11c0-43da-975e-2a8ad9ebae0b`
+  );
+  const books = await res.json();
+
+  return {
+    props: { data: books },
+  };
 }
