@@ -29,8 +29,14 @@
     @apply mb-3 text-justify indent-8;
   }
 
+  .book-page > p,
+  .book-page > q,
+  .book-page > summary {
+    @apply hover:dark:text-slate-300;
+  }
+
   .book-page > strong {
-    @apply block indent-0 font-sans text-lg text-slate-900 dark:text-slate-200;
+    @apply block indent-0 text-lg text-slate-900 dark:text-slate-200;
   }
 
   .book-page > summary {
@@ -41,7 +47,7 @@
     font-family: LPMQ, "Traditional Arabic", Tahoma, sans-serif;
     direction: rtl;
     unicode-bidi: embed;
-    @apply ml-auto select-all bg-transparent indent-0 text-2xl leading-[3.5rem] text-slate-800 dark:text-slate-300;
+    @apply ml-auto select-all bg-transparent indent-0 text-2xl leading-[3.5rem] text-slate-800 hover:text-slate-900 dark:text-slate-300 hover:dark:text-slate-100;
   }
 
   .book-page > ul {

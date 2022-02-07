@@ -1,4 +1,4 @@
-function Sidebar({ data }) {
+function Sidebar({ data, callback }) {
   const renderSubTables = (content, html, level) => {
     const indent = level > 1 ? "pl-8" : "pl-4";
 
@@ -6,8 +6,9 @@ function Sidebar({ data }) {
       content.map((item, index) => {
         html.push(
           <li
-            className={`${indent} cursor-pointer before:mr-1 before:text-green-900 before:content-['>'] before:dark:text-green-500`}
             key={`sub-${item.page}${index}`}
+            className={`${indent} cursor-pointer duration-100 before:mr-1 before:text-green-900 before:content-['>'] hover:text-green-600 before:dark:text-green-500 hover:dark:text-green-500`}
+            onClick={() => callback(item.page)}
           >
             {item.text}
           </li>
@@ -28,8 +29,9 @@ function Sidebar({ data }) {
           }
           elements.push(
             <li
-              className="cursor-pointer font-medium text-slate-900 dark:text-slate-200"
               key={table.page}
+              className="cursor-pointer font-medium text-slate-900 duration-100 hover:text-green-600 dark:text-slate-200 hover:dark:text-green-500"
+              onClick={() => callback(table.page)}
             >
               {heading}
             </li>
