@@ -1,5 +1,5 @@
 import { wrapper } from "../app/store";
-import Navbar from "../common/components/navbar";
+import { Navbar } from "../common/components";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
