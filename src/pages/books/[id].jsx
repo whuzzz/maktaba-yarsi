@@ -4,6 +4,7 @@ import { NavigationsButton } from "../../common/components";
 import { getData } from "../../common/helpers";
 import { DisplayContent, getBook, TableOfContents } from "../../features/book";
 import { wrapper } from "../../app/store";
+import API_CONFIG from "../../common/constant";
 
 export default function DetailBookPage() {
   const { page, book } = useSelector((state) => state.book);
@@ -31,7 +32,7 @@ export default function DetailBookPage() {
 }
 
 export async function getStaticPaths() {
-  const books = await getData("http://localhost:5000/books");
+  const books = await getData(API_CONFIG.GET_BOOKS);
 
   const paths = books.map(({ id }) => ({
     params: { id },

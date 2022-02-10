@@ -25,10 +25,6 @@
     -moz-appearance: textfield;
   }
 
-  .dark-theme {
-    color-scheme: dark;
-  }
-
   body {
     @apply font-poppins text-slate-700 selection:bg-cyan-400 selection:text-slate-700 dark:text-slate-400;
   }
@@ -43,8 +39,13 @@
 
   .book-page > p,
   .book-page > q,
+  .book-page > h1,
   .book-page > summary {
     @apply hover:dark:text-slate-300;
+  }
+
+  .book-page > h1 {
+    @apply mb-2 block indent-0 text-xl font-bold text-slate-900 dark:text-slate-200;
   }
 
   .book-page > strong {

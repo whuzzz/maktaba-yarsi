@@ -1,6 +1,6 @@
 import { MdNavigateNext, MdLastPage } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
-import { navigateTo } from "../../redux/actions/book-actions";
+import { navigateTo } from "../../features/book";
 
 function NavigationsButton() {
   const dispatch = useDispatch();
