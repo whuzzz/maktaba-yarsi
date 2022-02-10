@@ -1,4 +1,5 @@
-import { Navbar } from "../components/layouts";
+import { wrapper } from "../app/store";
+import Navbar from "../common/components/navbar";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
@@ -10,4 +11,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default wrapper.withRedux(MyApp);
