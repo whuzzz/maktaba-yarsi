@@ -22,7 +22,6 @@ function NavigationsButton() {
         name="page"
         id="page"
         value={page}
-        // onKeyPress={navigateTo}
         onChange={(e) => dispatch(navigateTo(parseInt(e.target.value)))}
       />
       <MdNavigateNext

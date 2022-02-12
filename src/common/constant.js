@@ -8,4 +8,11 @@ const API_CONFIG = {
   GET_BOOK: (id) => `${BASE_URL}books?bookId=${id}`,
 };
 
+export const INDENT_LEVEL = {
+  1: "pl-4",
+  2: "pl-8",
+  3: "pl-12",
+  4: "pl-16",
+};
+
 export default API_CONFIG;

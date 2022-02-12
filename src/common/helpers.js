@@ -1,6 +1,9 @@
 import ListContent from "../features/book/list-content";
+import { INDENT_LEVEL } from "./constant";
 
 export const totalSkip = (data) => data.filter((table) => table?.head).length;
+
+export const truncate = (word, length) => word.substring(0, length);
 
 export const addDarkColorScheme = () => {
   const rootElement = document.querySelector("html.dark");
@@ -13,9 +16,9 @@ export const addDarkColorScheme = () => {
 };
 
 export const renderSubTables = (content, html, level, currentPage) => {
-  const indent = level > 1 ? "pl-8" : "pl-4";
-
   if (content) {
+    const indent = INDENT_LEVEL[level];
+
     content.map((item) => {
       const key = `sub-${item.page}-${item.text}-${level}`;
       html.push(
