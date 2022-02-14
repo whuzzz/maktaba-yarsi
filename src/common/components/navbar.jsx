@@ -10,7 +10,7 @@ function Navbar() {
   useEffect(addDarkColorScheme, [isDarkMode, toggleDarkMode]);
 
   return (
-    <nav className="fixed top-0 z-50 mb-14 flex w-full items-center justify-between border-b border-black/10 bg-white px-10 py-3.5 text-slate-700 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200">
+    <nav className="fixed top-0 z-50 mb-14 flex w-full items-center justify-between border-b border-black/10 bg-white py-3.5 pl-8 pr-10 text-slate-700 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200">
       <Link href="/">
         <a className="text-2xl font-semibold text-green-600 dark:text-green-500">
           YASLAB

@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useSelector } from "react-redux";
-import { NavigationsButton } from "../../common/components";
+import { Footer, NavigationsButton } from "../../common/components";
 import { getData } from "../../common/helpers";
 import { DisplayContent, getBook, TableOfContents } from "../../features/book";
 import { wrapper } from "../../app/store";
@@ -25,6 +25,7 @@ export default function DetailBookPage() {
           <NavigationsButton />
           <DisplayContent content={text} />
           <NavigationsButton />
+          <Footer className="mt-20" />
         </div>
       </main>
     </>
