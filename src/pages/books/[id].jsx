@@ -19,7 +19,7 @@ export default function DetailBookPage() {
         <meta name="description" content={book.info.desc} />
       </Head>
 
-      <main className="flex w-full pt-14 text-slate-700 duration-150 dark:text-slate-400">
+      <main className="flex w-full pt-14 text-slate-700 dark:text-slate-400">
         <TableOfContents data={book.tableOfContents} page={page} />
         <div className="ml-auto w-9/12 p-20 dark:bg-slate-900">
           <NavigationsButton />

@@ -15,4 +15,6 @@ export const INDENT_LEVEL = {
   4: "pl-16",
 };
 
+export const NAV_LIST = [{ list: "search" }, { list: "books" }];
+
 export default API_CONFIG;

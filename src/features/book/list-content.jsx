@@ -10,7 +10,7 @@ function ListContent({ data, item, indent, on, heading }) {
     heading
       ? "font-medium text-slate-900 dark:text-slate-200"
       : "flex before:dark:text-green-500"
-  } cursor-pointer duration-100 hover:text-green-600 hover:dark:text-green-500`;
+  } cursor-pointer hover:text-green-600 hover:dark:text-green-500`;
 
   if (heading) {
     const substractTOC = totalSkip(data);
@@ -21,7 +21,9 @@ function ListContent({ data, item, indent, on, heading }) {
 
   return (
     <li className={listStyle} onClick={() => dispatch(navigateTo(item.page))}>
-      {!heading && <MdNavigateNext className="text-xl text-green-600" />}
+      {!heading && (
+        <MdNavigateNext className="shrink-0 text-xl text-green-600" />
+      )}
       {text}
     </li>
   );
