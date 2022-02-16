@@ -1,10 +1,14 @@
 import Head from "next/head";
 import { useSelector } from "react-redux";
-import { Footer, NavigationsButton } from "../../common/components";
-import { getData } from "../../common/helpers";
-import { DisplayContent, getBook, TableOfContents } from "../../features/book";
-import { wrapper } from "../../app/store";
-import API_CONFIG from "../../common/constant";
+import { Footer, NavigationsButton } from "../../../common/components";
+import { getData } from "../../../common/helpers";
+import {
+  DisplayContent,
+  getBook,
+  TableOfContents,
+} from "../../../features/book";
+import { wrapper } from "../../../app/store";
+import API_CONFIG from "../../../common/constant";
 
 export default function DetailBookPage() {
   const { page, book } = useSelector((state) => state.book);
@@ -33,10 +37,9 @@ export default function DetailBookPage() {
 }
 
 export async function getStaticPaths() {
-  const books = await getData(API_CONFIG.GET_BOOKS);
-
-  const paths = books.map(({ id }) => ({
-    params: { id },
+  const booksId = await getData(API_CONFIG.GET_BOOKS);
+  const paths = booksId.map(({ id, category }) => ({
+    params: { id, category },
   }));
 
   return { paths, fallback: false };
@@ -44,7 +47,7 @@ export async function getStaticPaths() {
 
 export const getStaticProps = wrapper.getStaticProps(
   (store) =>
-    async ({ params: { id } }) => {
-      await store.dispatch(getBook(id));
+    async ({ params: { id, category } }) => {
+      await store.dispatch(getBook(id, category));
     }
 );
