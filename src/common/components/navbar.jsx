@@ -18,8 +18,8 @@ function Navbar() {
       </Link>
       <div className="flex items-center space-x-8">
         <ul className="flex items-center space-x-8 font-semibold">
-          {NAV_LIST.map(({ list }) => (
-            <Link key={list} href={`/${list}`}>
+          {NAV_LIST.map(({ list, route }) => (
+            <Link key={list} href={route}>
               <a className="capitalize hover:text-green-600 dark:hover:text-green-500">
                 {list}
               </a>

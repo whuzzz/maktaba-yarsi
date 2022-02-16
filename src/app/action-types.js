@@ -1,4 +1,7 @@
 export const GET_BOOK = "GET_BOOK";
+export const GET_BOOKS = "GET_BOOKS";
+export const GET_CATEGORIES = "GET_CATEGORIES";
+export const GET_CATEGORY = "GET_CATEGORY";
 export const SET_PAGE = "SET_PAGE";
 export const SET_QUERY = "SET_QUERY";
 

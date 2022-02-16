@@ -5,7 +5,9 @@ export const BASE_URL =
 
 const API_CONFIG = {
   GET_BOOKS: `${BASE_URL}books`,
-  GET_BOOK: (id) => `${BASE_URL}books?bookId=${id}`,
+  GET_BOOK: (id, c) => `${BASE_URL}books?bookId=${id}&category=${c}`,
+  GET_CATEGORIES: `${BASE_URL}books/categories`,
+  GET_CATEGORY: (category) => `${BASE_URL}books/category/${category}`,
 };
 
 export const INDENT_LEVEL = {
@@ -15,6 +17,9 @@ export const INDENT_LEVEL = {
   4: "pl-16",
 };
 
-export const NAV_LIST = [{ list: "search" }, { list: "books" }];
+export const NAV_LIST = [
+  { list: "search", route: "/" },
+  { list: "books", route: "/books/categories" },
+];
 
 export default API_CONFIG;
