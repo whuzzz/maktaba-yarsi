@@ -16,7 +16,7 @@ export const addDarkColorScheme = () => {
 };
 
 export const formatCategory = (string) => {
-  return string.replaceAll("-", " ").replace("dan", "&");
+  return string.replace(/-/g, " ").replace("dan", "&");
 };
 
 export const renderSubTables = (content, html, level, currentPage) => {
