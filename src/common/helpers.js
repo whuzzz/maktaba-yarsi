@@ -3,7 +3,8 @@ import { INDENT_LEVEL } from "./constant";
 
 export const totalSkip = (data) => data.filter((table) => table?.head).length;
 
-export const truncate = (word, length) => word.substring(0, length);
+export const truncate = (word, length = 10) =>
+  word.substring(0, length).concat("...");
 
 export const addDarkColorScheme = () => {
   const rootElement = document.querySelector("html.dark");
@@ -17,6 +18,10 @@ export const addDarkColorScheme = () => {
 
 export const formatCategory = (string) => {
   return string.replace(/-/g, " ").replace("dan", "&");
+};
+
+export const formatPublish = (string) => {
+  return string.split(" ")[3];
 };
 
 export const renderSubTables = (content, html, level, currentPage) => {
