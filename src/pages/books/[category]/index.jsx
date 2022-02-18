@@ -10,7 +10,7 @@ import {
 } from "../../../common/helpers";
 import { getCategory } from "../../../features/book/book-actions";
 
-export default function CategoryPage() {
+export default function ListOfBookPage() {
   const router = useRouter();
   const { query } = router;
   const { category } = useSelector((state) => state.book);
