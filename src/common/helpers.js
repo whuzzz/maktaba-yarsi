@@ -15,6 +15,10 @@ export const addDarkColorScheme = () => {
   }
 };
 
+export const formatCategory = (string) => {
+  return string.replaceAll("-", " ").replace("dan", "&");
+};
+
 export const renderSubTables = (content, html, level, currentPage) => {
   if (content) {
     const indent = INDENT_LEVEL[level];
