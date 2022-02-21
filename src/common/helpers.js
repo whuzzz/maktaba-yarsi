@@ -1,5 +1,7 @@
+import { Fragment } from "react";
+import Link from "next/link";
 import ListContent from "../features/book/list-content";
-import { INDENT_LEVEL } from "./constant";
+import { FORMAT_BREADCRUMB, INDENT_LEVEL } from "./constant";
 
 export const totalSkip = (data) => data.filter((table) => table?.head).length;
 
@@ -20,9 +22,24 @@ export const formatCategory = (string) => {
   return string.replace(/-/g, " ").replace("dan", "&");
 };
 
+export const unFormatCategory = (string) => {
+  return string.replace(/ /g, "-").replace("&", "dan").toLowerCase();
+};
+
 export const formatPublish = (string) => {
   return string.split(" ")[3];
 };
+
+export const previousPage = (route, index) => (
+  <Fragment key={index}>
+    <li className="capitalize hover:underline">
+      <Link href={`/${route.link}`} passHref>
+        <a role="button">{route.title}</a>
+      </Link>
+    </li>
+    {FORMAT_BREADCRUMB}
+  </Fragment>
+);
 
 export const renderSubTables = (content, html, level, currentPage) => {
   if (content) {

@@ -10,6 +10,8 @@ const API_CONFIG = {
   GET_CATEGORY: (category) => `${BASE_URL}books/category/${category}`,
 };
 
+export const FORMAT_BREADCRUMB = "\xa0\xa0/\xa0\xa0";
+
 export const INDENT_LEVEL = {
   1: "pl-4",
   2: "pl-8",
