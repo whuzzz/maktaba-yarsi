@@ -1,12 +1,17 @@
 import Head from "next/head";
 import { useSelector } from "react-redux";
-import { Footer, NavigationsButton } from "../../../common/components";
-import { getData } from "../../../common/helpers";
 import {
+  Breadcrumb,
+  Footer,
+  NavigationsButton,
+} from "../../../common/components";
+import {
+  DetailBook,
   DisplayContent,
   getBook,
   TableOfContents,
 } from "../../../features/book";
+import { getData, unFormatCategory } from "../../../common/helpers";
 import { wrapper } from "../../../app/store";
 import API_CONFIG from "../../../common/constant";
 
@@ -23,10 +28,26 @@ export default function DetailBookPage() {
         <meta name="author" content={book.info.author} />
         <meta name="description" content={book.info.desc} />
       </Head>
-
       <main className="flex w-full pt-14 text-slate-700 dark:text-slate-400">
         <TableOfContents data={book.tableOfContents} page={page} />
-        <div className="ml-auto w-9/12 p-20 dark:bg-slate-900">
+        <div className="ml-auto w-9/12 px-20 pb-20 dark:bg-slate-900">
+          <Breadcrumb
+            style="mt-6 ml-0"
+            routes={[
+              { title: "categories", link: "/books/categories" },
+              {
+                title: book.info.category,
+                link: `/books/${unFormatCategory(book.info.category)}`,
+              },
+              { title: book.info.title },
+            ]}
+          />
+          <header className="my-5 bg-slate-800 p-5">
+            <h2 className="truncate text-3xl font-extrabold dark:text-slate-300">
+              {book.info.title}
+            </h2>
+            <DetailBook book={book.info} />
+          </header>
           <NavigationsButton />
           <DisplayContent content={text} />
           <NavigationsButton />
