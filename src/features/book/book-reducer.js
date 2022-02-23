@@ -4,6 +4,7 @@ import {
   GET_CATEGORIES,
   GET_CATEGORY,
   SET_PAGE,
+  SET_ROUTES,
 } from '../../app/action-types';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
   category: [],
   book: {},
   page: null,
+  routes: null,
 };
 
 export const bookReducer = (state = initialState, action) => {
@@ -36,6 +38,11 @@ export const bookReducer = (state = initialState, action) => {
       const category = action.payload;
 
       return { ...state, category };
+    }
+    case SET_ROUTES: {
+      const routes = action.payload;
+
+      return { ...state, routes };
     }
     case SET_PAGE: {
       const book = state.book.content;

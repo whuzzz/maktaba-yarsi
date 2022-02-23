@@ -4,6 +4,7 @@ import {
   GET_CATEGORIES,
   GET_CATEGORY,
   SET_PAGE,
+  SET_ROUTES,
 } from '../../app/action-types';
 import API_CONFIG from '../../common/constant';
 import { getData } from '../../common/helpers';
@@ -11,42 +12,31 @@ import { getData } from '../../common/helpers';
 export const getBooks = (category) => async (dispatch) => {
   const categoryBook = await getData(API_CONFIG.GET_CATEGORY(category));
 
-  dispatch({
-    type: GET_BOOKS,
-    payload: categoryBook,
-  });
+  dispatch({ type: GET_BOOKS, payload: categoryBook });
 };
 
 export const getCategories = () => async (dispatch) => {
   const categoriesBook = await getData(API_CONFIG.GET_CATEGORIES);
 
-  dispatch({
-    type: GET_CATEGORIES,
-    payload: categoriesBook,
-  });
+  dispatch({ type: GET_CATEGORIES, payload: categoriesBook });
 };
 
 export const getCategory = (category) => async (dispatch) => {
   const categoryBook = await getData(API_CONFIG.GET_CATEGORY(category));
 
-  dispatch({
-    type: GET_CATEGORY,
-    payload: categoryBook,
-  });
+  dispatch({ type: GET_CATEGORY, payload: categoryBook });
 };
 
 export const getBook = (id, category) => async (dispatch) => {
   const specificBook = await getData(API_CONFIG.GET_BOOK(id, category));
 
-  dispatch({
-    type: GET_BOOK,
-    payload: specificBook,
-  });
+  dispatch({ type: GET_BOOK, payload: specificBook });
+};
+
+export const setRoutes = (routes) => async (dispatch) => {
+  dispatch({ type: SET_ROUTES, payload: routes });
 };
 
 export const navigateTo = (page) => async (dispatch) => {
-  dispatch({
-    type: SET_PAGE,
-    payload: page,
-  });
+  dispatch({ type: SET_PAGE, payload: page });
 };
