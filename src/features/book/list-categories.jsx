@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { formatCategory } from "../../common/helpers";
+import Link from 'next/link';
+import { formatCategory } from '../../common/helpers';
 
 export default function ListCategories({ category }) {
   return (

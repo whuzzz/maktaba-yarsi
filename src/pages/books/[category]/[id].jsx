@@ -1,26 +1,16 @@
-import Head from "next/head";
-import { useSelector } from "react-redux";
-import {
-  Breadcrumb,
-  Footer,
-  NavigationsButton,
-} from "../../../common/components";
-import {
-  DisplayContent,
-  getBook,
-  HeaderInfo,
-  TableOfContents,
-} from "../../../features/book";
-import { getData, unFormatCategory } from "../../../common/helpers";
-import { wrapper } from "../../../app/store";
-import API_CONFIG from "../../../common/constant";
+import Head from 'next/head';
+import { useSelector } from 'react-redux';
+import { Breadcrumb, Footer, NavigationsButton } from '../../../common/components';
+import { DisplayContent, getBook, HeaderInfo, TableOfContents } from '../../../features/book';
+import { getData, unFormatCategory } from '../../../common/helpers';
+import { wrapper } from '../../../app/store';
+import API_CONFIG from '../../../common/constant';
 
 export default function DetailBookPage() {
   const { page, book } = useSelector((state) => state.book);
   const { text } = book.content.find((item) => item.page === page);
-
   const routes = [
-    { title: "categories", link: "/books/categories" },
+    { title: 'categories', link: '/books/categories' },
     {
       title: book.info.category,
       link: `/books/${unFormatCategory(book.info.category)}`,

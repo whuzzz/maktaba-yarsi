@@ -1,7 +1,7 @@
 export const BASE_URL =
-  process.env.NODE_ENV === "development"
-    ? "http://localhost:5000/"
-    : "https://buku-islam-api.vercel.app/";
+  process.env.NODE_ENV === 'development'
+    ? 'http://localhost:5000/'
+    : 'https://buku-islam-api.vercel.app/';
 
 const API_CONFIG = {
   GET_BOOKS: `${BASE_URL}books`,
@@ -10,18 +10,18 @@ const API_CONFIG = {
   GET_CATEGORY: (category) => `${BASE_URL}books/category/${category}`,
 };
 
-export const FORMAT_BREADCRUMB = "\xa0\xa0/\xa0\xa0";
+export const FORMAT_BREADCRUMB = '\xa0\xa0/\xa0\xa0';
 
 export const INDENT_LEVEL = {
-  1: "pl-4",
-  2: "pl-8",
-  3: "pl-12",
-  4: "pl-16",
+  1: 'pl-4',
+  2: 'pl-8',
+  3: 'pl-12',
+  4: 'pl-16',
 };
 
 export const NAV_LIST = [
-  { list: "search", route: "/" },
-  { list: "books", route: "/books/categories" },
+  { list: 'search', route: '/' },
+  { list: 'books', route: '/books/categories' },
 ];
 
 export default API_CONFIG;

@@ -1,28 +1,24 @@
-import Link from "next/link";
-import { useEffect } from "react";
-import useDarkMode, { DarkModeToggler } from "use-dark-mode-hook";
-import { NAV_LIST } from "../constant";
-import { addDarkColorScheme } from "../helpers";
-import { FaGithub } from "react-icons/fa";
+import Link from 'next/link';
+import { useEffect } from 'react';
+import useDarkMode, { DarkModeToggler } from 'use-dark-mode-hook';
+import { NAV_LIST } from '../constant';
+import { addDarkColorScheme } from '../helpers';
+import { FaGithub } from 'react-icons/fa';
 
 function Navbar() {
-  const [isDarkMode, toggleDarkMode] = useDarkMode({ element: "html" });
+  const [isDarkMode, toggleDarkMode] = useDarkMode({ element: 'html' });
   useEffect(addDarkColorScheme, [isDarkMode, toggleDarkMode]);
 
   return (
     <nav className="fixed top-0 z-50 mb-14 flex w-full items-center justify-between border-b border-black/10 bg-white py-3.5 pl-8 pr-10 text-slate-700 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200">
       <Link href="/">
-        <a className="text-2xl font-semibold text-green-600 dark:text-green-500">
-          YASLAB
-        </a>
+        <a className="text-2xl font-semibold text-green-600 dark:text-green-500">YASLAB</a>
       </Link>
       <div className="flex items-center space-x-8">
         <ul className="flex items-center space-x-8 font-semibold">
           {NAV_LIST.map(({ list, route }) => (
             <Link key={list} href={route}>
-              <a className="capitalize hover:text-green-600 dark:hover:text-green-500">
-                {list}
-              </a>
+              <a className="capitalize hover:text-green-600 dark:hover:text-green-500">{list}</a>
             </Link>
           ))}
         </ul>

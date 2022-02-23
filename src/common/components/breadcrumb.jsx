@@ -1,6 +1,6 @@
-import { previousPage } from "../helpers";
+import { previousPage } from '../helpers';
 
-function Breadcrumb({ routes = [], style }) {
+function Breadcrumb({ style, routes = [] }) {
   const routelinks = routes.map((route, index) => {
     if (routes.length - 1 === index) {
       return (
@@ -15,7 +15,7 @@ function Breadcrumb({ routes = [], style }) {
   return (
     <div className={`${style} mx-8 my-4 w-max`}>
       <ul className="flex items-center">
-        {previousPage({ title: "home", link: "" }, -1)}
+        {previousPage({ title: 'home', link: '' }, -1)}
         {routelinks}
       </ul>
     </div>

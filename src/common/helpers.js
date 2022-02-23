@@ -1,33 +1,32 @@
-import { Fragment } from "react";
-import Link from "next/link";
-import ListContent from "../features/book/list-content";
-import { FORMAT_BREADCRUMB, INDENT_LEVEL } from "./constant";
+import { Fragment } from 'react';
+import Link from 'next/link';
+import ListContent from '../features/book/list-content';
+import { FORMAT_BREADCRUMB, INDENT_LEVEL } from './constant';
 
 export const totalSkip = (data) => data.filter((table) => table?.head).length;
 
-export const truncate = (word, length = 10) =>
-  word.substring(0, length).concat("...");
+export const truncate = (word, length = 10) => word.substring(0, length).concat('...');
 
 export const addDarkColorScheme = () => {
-  const rootElement = document.querySelector("html.dark");
+  const rootElement = document.querySelector('html.dark');
 
   if (rootElement) {
-    rootElement.style.colorScheme = "dark";
+    rootElement.style.colorScheme = 'dark';
   } else {
-    document.querySelector("html").style.colorScheme = "light";
+    document.querySelector('html').style.colorScheme = 'light';
   }
 };
 
 export const formatCategory = (string) => {
-  return string.replace(/-/g, " ").replace("dan", "&");
+  return string.replace(/-/g, ' ').replace('dan', '&');
 };
 
 export const unFormatCategory = (string) => {
-  return string.replace(/ /g, "-").replace("&", "dan").toLowerCase();
+  return string.replace(/ /g, '-').replace('&', 'dan').toLowerCase();
 };
 
 export const formatPublish = (string) => {
-  return string.split(" ")[3];
+  return string.split(' ')[3];
 };
 
 export const previousPage = (route, index) => (
@@ -47,9 +46,7 @@ export const renderSubTables = (content, html, level, currentPage) => {
 
     content.map((item) => {
       const key = `sub-${item.page}-${item.text}-${level}`;
-      html.push(
-        <ListContent key={key} item={item} indent={indent} on={currentPage} />
-      );
+      html.push(<ListContent key={key} item={item} indent={indent} on={currentPage} />);
       renderSubTables(item?.sub, html, level + 1, currentPage);
     });
   }

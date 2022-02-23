@@ -1,22 +1,19 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useSelector } from "react-redux";
-import { wrapper } from "../../../app/store";
-import { Breadcrumb, PageWrapper } from "../../../common/components";
-import API_CONFIG from "../../../common/constant";
-import { formatCategory, getData } from "../../../common/helpers";
-import { getCategory } from "../../../features/book/book-actions";
-import ListBooks from "../../../features/book/list-books";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useSelector } from 'react-redux';
+import { wrapper } from '../../../app/store';
+import { Breadcrumb, PageWrapper } from '../../../common/components';
+import API_CONFIG from '../../../common/constant';
+import { formatCategory, getData } from '../../../common/helpers';
+import { getCategory } from '../../../features/book/book-actions';
+import ListBooks from '../../../features/book/list-books';
 
 export default function ListOfBookPage() {
   const router = useRouter();
   const { query } = router;
   const { category } = useSelector((state) => state.book);
   const categoryTitle = formatCategory(query.category);
-  const routes = [
-    { title: "categories", link: "/books/categories" },
-    { title: categoryTitle },
-  ];
+  const routes = [{ title: 'categories', link: '/books/categories' }, { title: categoryTitle }];
 
   return (
     <>

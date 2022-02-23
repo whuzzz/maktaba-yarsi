@@ -1,4 +1,4 @@
-import DetailBook from "./detail-book";
+import DetailBook from './detail-book';
 
 export default function ListBooks({ id, info, router }) {
   return (

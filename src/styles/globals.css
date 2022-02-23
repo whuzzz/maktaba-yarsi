@@ -21,7 +21,7 @@
   }
 
   /* Firefox */
-  input[type="number"] {
+  input[type='number'] {
     -moz-appearance: textfield;
   }
 
@@ -56,8 +56,8 @@
     @apply mb-3 list-none text-justify;
   }
 
-  .book-page > p[dir="rtl"] {
-    font-family: LPMQ, "Traditional Arabic", Tahoma, sans-serif;
+  .book-page > p[dir='rtl'] {
+    font-family: LPMQ, 'Traditional Arabic', Tahoma, sans-serif;
     direction: rtl;
     unicode-bidi: embed;
     @apply ml-auto select-all bg-transparent indent-0 text-2xl leading-[3.5rem] text-slate-800 hover:text-slate-900 dark:text-slate-300 hover:dark:text-slate-100;
@@ -76,11 +76,10 @@
   }
 
   @font-face {
-    font-family: "LPMQ";
-    src: url("https://uminabdillah.github.io/fonts/lpmq.eot");
-    src: url("https://uminabdillah.github.io/fonts/lpmq.eot?#iefix")
-        format("embedded-opentype"),
-      url("https://uminabdillah.github.io/fonts/lpmq.ttf") format("truetype");
+    font-family: 'LPMQ';
+    src: url('https://uminabdillah.github.io/fonts/lpmq.eot');
+    src: url('https://uminabdillah.github.io/fonts/lpmq.eot?#iefix') format('embedded-opentype'),
+      url('https://uminabdillah.github.io/fonts/lpmq.ttf') format('truetype');
     font-weight: 400;
     font-weight: normal;
     font-display: swap;

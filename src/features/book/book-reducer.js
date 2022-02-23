@@ -4,7 +4,7 @@ import {
   GET_CATEGORIES,
   GET_CATEGORY,
   SET_PAGE,
-} from "../../app/action-types";
+} from '../../app/action-types';
 
 const initialState = {
   books: [],

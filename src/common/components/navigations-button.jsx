@@ -1,6 +1,6 @@
-import { MdNavigateNext, MdLastPage } from "react-icons/md";
-import { useDispatch, useSelector } from "react-redux";
-import { navigateTo } from "../../features/book";
+import { MdNavigateNext, MdLastPage } from 'react-icons/md';
+import { useDispatch, useSelector } from 'react-redux';
+import { navigateTo } from '../../features/book';
 
 function NavigationsButton() {
   const dispatch = useDispatch();
@@ -30,9 +30,7 @@ function NavigationsButton() {
       />
       <MdLastPage
         className="cursor-pointer text-3xl hover:text-slate-900 dark:hover:text-slate-100"
-        onClick={() =>
-          dispatch(navigateTo(book.content[book.content.length - 1].page))
-        }
+        onClick={() => dispatch(navigateTo(book.content[book.content.length - 1].page))}
       />
     </div>
   );
