@@ -33,6 +33,10 @@
     @apply cursor-pointer font-medium hover:text-green-600 hover:dark:text-green-500;
   }
 
+  .highlight {
+    @apply font-sans text-xl font-bold text-green-600 dark:text-green-500;
+  }
+
   .book-page > p {
     @apply mb-3 text-justify indent-8;
   }

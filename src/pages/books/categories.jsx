@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
 import { wrapper } from '../../app/store';
-import { Breadcrumb, PageWrapper } from '../../common/components';
+import { BackgroundImage, Breadcrumb, PageWrapper } from '../../common/components';
 import { ListCategories } from '../../features/book';
 import { getCategories } from '../../features/book/book-actions';
 
@@ -25,6 +25,7 @@ export default function CategoriyBooksPage() {
           ))}
         </div>
       </PageWrapper>
+      <BackgroundImage />
     </>
   );
 }
