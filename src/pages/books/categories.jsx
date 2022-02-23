@@ -1,9 +1,8 @@
 import Head from "next/head";
-import Link from "next/link";
 import { useSelector } from "react-redux";
 import { wrapper } from "../../app/store";
 import { Breadcrumb, PageWrapper } from "../../common/components";
-import { formatCategory } from "../../common/helpers";
+import { ListCategories } from "../../features/book";
 import { getCategories } from "../../features/book/book-actions";
 
 export default function CategoriyBooksPage() {
@@ -21,11 +20,7 @@ export default function CategoriyBooksPage() {
         </h1>
         <div className="mx-auto grid w-max grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
           {categories.map(({ category }) => (
-            <Link key={category} href={`/books/${category}`}>
-              <a className="w-60 rounded-xl border border-green-600 py-3 text-center text-2xl font-medium capitalize duration-300 hover:bg-green-600 hover:text-white dark:border-green-500 hover:dark:bg-green-500 hover:dark:text-slate-900">
-                {formatCategory(category)}
-              </a>
-            </Link>
+            <ListCategories key={category} category={category} />
           ))}
         </div>
       </PageWrapper>

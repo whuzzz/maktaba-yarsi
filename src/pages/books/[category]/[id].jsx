@@ -6,9 +6,9 @@ import {
   NavigationsButton,
 } from "../../../common/components";
 import {
-  DetailBook,
   DisplayContent,
   getBook,
+  HeaderInfo,
   TableOfContents,
 } from "../../../features/book";
 import { getData, unFormatCategory } from "../../../common/helpers";
@@ -18,6 +18,15 @@ import API_CONFIG from "../../../common/constant";
 export default function DetailBookPage() {
   const { page, book } = useSelector((state) => state.book);
   const { text } = book.content.find((item) => item.page === page);
+
+  const routes = [
+    { title: "categories", link: "/books/categories" },
+    {
+      title: book.info.category,
+      link: `/books/${unFormatCategory(book.info.category)}`,
+    },
+    { title: book.info.title },
+  ];
 
   return (
     <>
@@ -31,23 +40,8 @@ export default function DetailBookPage() {
       <main className="flex w-full pt-14 text-slate-700 dark:text-slate-400">
         <TableOfContents data={book.tableOfContents} page={page} />
         <div className="ml-auto w-9/12 px-20 pb-20 dark:bg-slate-900">
-          <Breadcrumb
-            style="mt-6 ml-0"
-            routes={[
-              { title: "categories", link: "/books/categories" },
-              {
-                title: book.info.category,
-                link: `/books/${unFormatCategory(book.info.category)}`,
-              },
-              { title: book.info.title },
-            ]}
-          />
-          <header className="my-5 bg-slate-800 p-5">
-            <h2 className="truncate text-3xl font-extrabold dark:text-slate-300">
-              {book.info.title}
-            </h2>
-            <DetailBook book={book.info} />
-          </header>
+          <Breadcrumb style="mt-6 ml-0" routes={routes} />
+          <HeaderInfo book={book} />
           <NavigationsButton />
           <DisplayContent content={text} />
           <NavigationsButton />
