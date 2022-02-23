@@ -46,7 +46,6 @@ export async function getStaticPaths() {
 export const getStaticProps = wrapper.getStaticProps(
   (store) =>
     async ({ params: { category } }) => {
-      console.log(category);
       await store.dispatch(getCategory(category));
       await store.dispatch(setRoutes(category));
     }
