@@ -1,12 +1,32 @@
-import NextNProgress from 'nextjs-progressbar';
+import NProgress from 'nprogress';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 import { wrapper } from '../app/store';
 import { Navbar } from '../common/components';
 import '../styles/globals.css';
+import '../styles/nprogress.css';
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleStart = () => NProgress.start();
+    const handleStop = () => NProgress.done();
+
+    NProgress.configure({ showSpinner: false });
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleStop);
+    router.events.on('routeChangeError', handleStop);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleStop);
+      router.events.off('routeChangeError', handleStop);
+    };
+  }, [router]);
+
   return (
     <>
-      <NextNProgress color="#22C55E" showOnShallow />
       <Navbar />
       <Component {...pageProps} />
     </>
