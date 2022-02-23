@@ -13,7 +13,7 @@ export default function ListOfBookPage() {
   const { query } = router;
   const { category } = useSelector((state) => state.book);
   const categoryTitle = formatCategory(query.category);
-  const routes = [{ title: 'categories', link: '/books/categories' }, { title: categoryTitle }];
+  const routes = [{ title: 'categories', link: 'books/categories' }, { title: categoryTitle }];
 
   return (
     <>

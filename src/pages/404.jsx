@@ -20,6 +20,7 @@ export default function ErrorPage() {
         <button
           className="mx-auto mt-5 block border border-green-600 px-4 py-2 font-medium duration-150 dark:border-green-500 dark:hover:bg-green-500 dark:hover:text-slate-900"
           onClick={router.back}
+          type="button"
         >
           Kembali ke halaman sebelumnya
         </button>

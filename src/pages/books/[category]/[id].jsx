@@ -10,10 +10,10 @@ export default function DetailBookPage() {
   const { page, book } = useSelector((state) => state.book);
   const { text } = book.content.find((item) => item.page === page);
   const routes = [
-    { title: 'categories', link: '/books/categories' },
+    { title: 'categories', link: 'books/categories' },
     {
       title: book.info.category,
-      link: `/books/${unFormatCategory(book.info.category)}`,
+      link: `books/${unFormatCategory(book.info.category)}`,
     },
     { title: book.info.title },
   ];

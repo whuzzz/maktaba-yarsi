@@ -31,8 +31,8 @@ export const formatPublish = (string) => {
 
 export const previousPage = (route, index) => (
   <Fragment key={index}>
-    <li className="capitalize hover:underline">
-      <Link href={`/${route.link}`} passHref>
+    <li className="capitalize hover:underline hover:decoration-2 hover:underline-offset-1 dark:hover:decoration-green-500">
+      <Link href={`/${route.link}`}>
         <a role="button">{route.title}</a>
       </Link>
     </li>

@@ -7,6 +7,7 @@ import { getCategories } from '../../features/book/book-actions';
 
 export default function CategoriyBooksPage() {
   const { categories } = useSelector((state) => state.book);
+
   return (
     <>
       <Head>
