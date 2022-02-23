@@ -4,5 +4,6 @@ import Footer from './footer';
 import Navbar from './navbar';
 import NavigationsButton from './navigations-button';
 import PageWrapper from './page-wrapper';
+import SearchInput from './search-input';
 
-export { Navbar, NavigationsButton, Footer, Breadcrumb, PageWrapper, BackgroundImage };
+export { Navbar, NavigationsButton, Footer, Breadcrumb, PageWrapper, BackgroundImage, SearchInput };
