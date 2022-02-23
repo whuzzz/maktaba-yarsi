@@ -4,4 +4,6 @@ export default function middleware(req) {
   if (!req.nextUrl.search) {
     return NextResponse.redirect('/');
   }
+
+  return NextResponse.next();
 }

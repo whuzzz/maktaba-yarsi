@@ -39,7 +39,6 @@
 
   .book-page > p,
   .book-page > q,
-  .book-page > h1,
   .book-page > summary {
     @apply hover:text-slate-900 hover:dark:text-slate-300;
   }
