@@ -1,13 +1,21 @@
 {
+  "env": {
+    "node": true,
+    "es2021": true
+  },
   "extends": [
+    "airbnb",
     "prettier",
+    "airbnb/hooks",
     "next/core-web-vitals",
     "eslint:recommended",
+    "plugin:prettier/recommended",
     "plugin:@next/next/recommended",
     "plugin:react-hooks/recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime"
   ],
+  "plugins": ["react"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -16,8 +24,18 @@
     "sourceType": "module"
   },
   "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": "warn",
+    "func-names": "off",
+    "no-process-exit": "off",
+    "object-shorthand": "off",
+    "class-methods-use-this": "off",
     "no-console": "warn",
     "react/prop-types": "off",
+    "jsx-a11y/href-no-hash": ["off"],
+    "react/jsx-props-no-spreading": "off",
+    "no-use-before-define": ["error", { "variables": false }],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     "react-hooks/exhaustive-deps": [
       "warn",
       {
