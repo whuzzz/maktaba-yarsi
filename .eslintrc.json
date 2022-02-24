@@ -18,6 +18,13 @@
   "settings": {
     "react": {
       "version": "detect"
+    },
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "paths": ["src"]
+        }
+      }
     }
   },
   "parserOptions": {
@@ -33,6 +40,8 @@
     "react/style-prop-object": "off",
     "no-console": "warn",
     "react/prop-types": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
     "react/no-array-index-key": "off",
     "jsx-a11y/href-no-hash": ["off"],
     "react/jsx-props-no-spreading": "off",
@@ -43,7 +52,6 @@
       {
         "additionalHooks": "(useMyCustomHook|useMyOtherCustomHook)"
       }
-    ],
-    "rules": { "import/extensions": ["error", "always", { "js": "never", "jsx": "never" }] }
+    ]
   }
 }
