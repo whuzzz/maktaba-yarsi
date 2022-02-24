@@ -28,24 +28,22 @@
     "sourceType": "module"
   },
   "rules": {
-    // "prettier/prettier": "error",
-    // "no-unused-vars": "warn",
-    // "func-names": "off",
-    // "no-process-exit": "off",
-    // "object-shorthand": "off",
-    // "class-methods-use-this": "off",
-    // "react/style-prop-object": "off",
+    "prettier/prettier": "error",
+    "no-unused-vars": "warn",
+    "react/style-prop-object": "off",
     "no-console": "warn",
-    // "react/prop-types": "off",
-    // "jsx-a11y/href-no-hash": ["off"],
+    "react/prop-types": "off",
+    "react/no-array-index-key": "off",
+    "jsx-a11y/href-no-hash": ["off"],
     "react/jsx-props-no-spreading": "off",
     "no-use-before-define": ["error", { "variables": false }],
-    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }]
-    // "react-hooks/exhaustive-deps": [
-    //   "warn",
-    //   {
-    //     "additionalHooks": "(useMyCustomHook|useMyOtherCustomHook)"
-    //   }
-    // ]
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "react-hooks/exhaustive-deps": [
+      "warn",
+      {
+        "additionalHooks": "(useMyCustomHook|useMyOtherCustomHook)"
+      }
+    ],
+    "rules": { "import/extensions": ["error", "always", { "js": "never", "jsx": "never" }] }
   }
 }

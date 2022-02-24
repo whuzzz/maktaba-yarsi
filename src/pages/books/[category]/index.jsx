@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
-import { wrapper } from '../../../app/store';
-import { BackgroundImage, Breadcrumb, PageWrapper } from '../../../common/components';
-import API_CONFIG from '../../../common/constant';
-import { formatCategory, getData } from '../../../common/helpers';
-import { getCategory, setRoutes } from '../../../features/book/book-actions';
-import ListBooks from '../../../features/book/list-books';
+import wrapper from '@/app/store';
+import { BackgroundImage, Breadcrumb, PageWrapper } from '@/common/components';
+import API_CONFIG from '@/common/constant';
+import { formatCategory, getData } from '@/common/helpers';
+import { getCategory, setRoutes } from '@/features/book/book-actions';
+import ListBooks from '@/features/book/list-books';
 
 export default function ListOfBookPage() {
   const { category, routes } = useSelector((state) => state.book);

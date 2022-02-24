@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { BackgroundImage, PageWrapper } from '../common/components';
+import { BackgroundImage, PageWrapper } from '@/common/components';
 
 export default function HomePage() {
   return (

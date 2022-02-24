@@ -1,6 +1,6 @@
 import { MdNavigateNext, MdLastPage } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
-import { navigateTo } from '../../features/book';
+import { navigateTo } from '@/features/book/book-actions';
 
 function NavigationsButton() {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ function NavigationsButton() {
         name="page"
         id="page"
         value={page}
-        onChange={(e) => dispatch(navigateTo(parseInt(e.target.value)))}
+        onChange={(e) => dispatch(navigateTo(+e.target.value))}
       />
       <MdNavigateNext
         className="cursor-pointer text-3xl hover:text-slate-900 dark:hover:text-slate-100"

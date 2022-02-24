@@ -6,6 +6,7 @@ export default function ListBooks({ id, info, category }) {
 
   return (
     <article
+      role="button"
       onClick={() => router.push(`/books/${category}/${id}`)}
       className="group cursor-pointer py-5 pl-6 dark:bg-slate-800"
     >

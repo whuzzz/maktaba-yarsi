@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FaRegSadTear } from 'react-icons/fa';
-import { PageWrapper } from '../common/components';
+import { PageWrapper } from '@/common/components';
 
 export default function ErrorPage() {
   const router = useRouter();

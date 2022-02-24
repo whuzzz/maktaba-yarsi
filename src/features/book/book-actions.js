@@ -5,9 +5,9 @@ import {
   GET_CATEGORY,
   SET_PAGE,
   SET_ROUTES,
-} from '../../app/action-types';
-import API_CONFIG from '../../common/constant';
-import { getData } from '../../common/helpers';
+} from '@/app/action-types';
+import API_CONFIG from '@/common/constant';
+import { getData } from '@/common/helpers';
 
 export const getBooks = (category) => async (dispatch) => {
   const categoryBook = await getData(API_CONFIG.GET_CATEGORY(category));

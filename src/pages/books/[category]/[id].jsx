@@ -1,10 +1,11 @@
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
-import { Breadcrumb, Footer, NavigationsButton } from '../../../common/components';
-import { DisplayContent, getBook, HeaderInfo, TableOfContents } from '../../../features/book';
-import { getData, unFormatCategory } from '../../../common/helpers';
-import { wrapper } from '../../../app/store';
-import API_CONFIG from '../../../common/constant';
+import { Breadcrumb, Footer, NavigationsButton } from '@/common/components';
+import { DisplayContent, HeaderInfo, TableOfContents } from '@/features/book';
+import { getData, unFormatCategory } from '@/common/helpers';
+import wrapper from '@/app/store';
+import API_CONFIG from '@/common/constant';
+import { getBook } from '@/features/book/book-actions';
 
 export default function DetailBookPage() {
   const { page, book } = useSelector((state) => state.book);

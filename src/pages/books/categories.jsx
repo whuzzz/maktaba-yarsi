@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import { useSelector } from 'react-redux';
-import { wrapper } from '../../app/store';
-import { BackgroundImage, Breadcrumb, PageWrapper } from '../../common/components';
-import { ListCategories } from '../../features/book';
-import { getCategories } from '../../features/book/book-actions';
+import wrapper from '@/app/store';
+import { BackgroundImage, Breadcrumb, PageWrapper } from '@/common/components';
+import { ListCategories } from '@/features/book';
+import { getCategories } from '@/features/book/book-actions';
 
 export default function CategoriyBooksPage() {
   const { categories } = useSelector((state) => state.book);

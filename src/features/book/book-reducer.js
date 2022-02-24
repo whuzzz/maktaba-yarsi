@@ -5,7 +5,7 @@ import {
   GET_CATEGORY,
   SET_PAGE,
   SET_ROUTES,
-} from '../../app/action-types';
+} from '@/app/action-types';
 
 const initialState = {
   books: [],
@@ -16,7 +16,8 @@ const initialState = {
   routes: null,
 };
 
-export const bookReducer = (state = initialState, action) => {
+// eslint-disable-next-line default-param-last
+const bookReducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_BOOK: {
       const book = action.payload;
@@ -50,7 +51,7 @@ export const bookReducer = (state = initialState, action) => {
 
       if (page > book[book.length - 1].page) {
         page = book[book.length - 1].page;
-      } else if (page < book[0].page || isNaN(page)) {
+      } else if (page < book[0].page || Number.isNaN(page)) {
         page = book[0].page;
       }
 
@@ -60,3 +61,5 @@ export const bookReducer = (state = initialState, action) => {
       return state;
   }
 };
+
+export default bookReducer;

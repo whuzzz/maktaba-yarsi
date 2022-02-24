@@ -1,4 +1,4 @@
-import { formatPublish } from '../../common/helpers';
+import { formatPublish } from '@/common/helpers';
 
 export default function DetailBook({ book }) {
   return (

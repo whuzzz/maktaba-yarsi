@@ -1,7 +1,7 @@
-import { Fragment } from 'react';
 import Link from 'next/link';
-import ListContent from '../features/book/list-content';
+import { Fragment } from 'react';
 import { FORMAT_BREADCRUMB, INDENT_LEVEL } from './constant';
+import { ListContent } from '@/features/book';
 
 export const totalSkip = (data) => data.filter((table) => table?.head).length;
 
@@ -31,9 +31,9 @@ export const formatPublish = (string) => {
 
 export const previousPage = (route, index) => (
   <Fragment key={index}>
-    <li className="capitalize hover:underline hover:decoration-2 hover:underline-offset-1 dark:hover:decoration-green-500">
-      <Link href={`/${route.link}`}>
-        <a role="button">{route.title}</a>
+    <li className="cursor-pointer capitalize hover:underline hover:decoration-2 hover:underline-offset-1 dark:hover:decoration-green-500">
+      <Link href={`/${route.link}`} passHref>
+        <p type="button">{route.title}</p>
       </Link>
     </li>
     {FORMAT_BREADCRUMB}
@@ -44,7 +44,7 @@ export const renderSubTables = (content, html, level, currentPage) => {
   if (content) {
     const indent = INDENT_LEVEL[level];
 
-    content.map((item) => {
+    content.forEach((item) => {
       const key = `sub-${item.page}-${item.text}-${level}`;
       html.push(<ListContent key={key} item={item} indent={indent} on={currentPage} />);
       renderSubTables(item?.sub, html, level + 1, currentPage);
