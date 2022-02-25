@@ -1,3 +1,3 @@
 export default function SearchInput() {
-  return <input type="text" name="search" id="search" />;
+  return <input className="bg-primary-light" type="text" name="search" id="search" />;
 }

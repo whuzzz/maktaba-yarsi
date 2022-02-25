@@ -16,7 +16,7 @@ export default function CategoriyBooksPage() {
       </Head>
       <PageWrapper>
         <Breadcrumb routes={[{ title: 'categories' }]} />
-        <h1 className="mb-10 text-center text-5xl font-bold dark:text-slate-200">
+        <h1 className="mb-10 text-center text-5xl font-bold text-dark-200 dark:text-light-200">
           Kategori Buku Islam
         </h1>
         <div className="mx-auto grid w-max grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">

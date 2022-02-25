@@ -10,15 +10,19 @@ function Navbar() {
   useEffect(addDarkColorScheme, [isDarkMode, toggleDarkMode]);
 
   return (
-    <nav className="fixed top-0 z-50 mb-14 flex w-full items-center justify-between border-b border-black/10 bg-white py-3.5 pl-8 pr-10 text-slate-700 dark:border-gray-800 dark:bg-slate-900 dark:text-slate-200">
+    <nav className="fixed top-0 z-50 mb-14 flex w-full items-center justify-between border-b border-black/10 bg-light-100 py-3.5 pl-8 pr-10 text-dark-300 dark:border-gray-800 dark:bg-dark-100 dark:text-light-300">
       <Link href="/" passHref>
-        <p className="text-2xl font-semibold text-green-600 dark:text-green-500">YASLAB</p>
+        <p className="cursor-pointer text-2xl font-semibold text-primary-light dark:text-primary-dark">
+          YASLAB
+        </p>
       </Link>
       <div className="flex items-center space-x-8">
         <ul className="flex items-center space-x-8 font-semibold">
           {NAV_LIST.map(({ list, route }) => (
             <Link key={list} href={route} passHref>
-              <p className="capitalize hover:text-green-600 dark:hover:text-green-500">{list}</p>
+              <p className=" cursor-pointer capitalize hover:text-primary-light dark:hover:text-primary-dark">
+                {list}
+              </p>
             </Link>
           ))}
         </ul>
@@ -26,7 +30,7 @@ function Navbar() {
           <DarkModeToggler
             isDarkMode={isDarkMode}
             toggleDarkMode={toggleDarkMode}
-            buttonClassName="dark:text-green-500 text-green-600"
+            buttonClassName="dark:text-primary-dark text-primary-light"
           />
           <a
             href="https://github.com/ReySuryanom/yaslab"

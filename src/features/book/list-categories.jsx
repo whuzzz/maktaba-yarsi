@@ -4,7 +4,7 @@ import { formatCategory } from '@/common/helpers';
 export default function ListCategories({ category }) {
   return (
     <Link href={`/books/${category}`} passHref>
-      <p className="w-60 cursor-pointer rounded-xl border border-green-600 py-3 text-center text-2xl font-medium capitalize duration-300 hover:bg-green-600 hover:text-white dark:border-green-500 hover:dark:bg-green-500 hover:dark:text-slate-900">
+      <p className="w-60 cursor-pointer rounded-xl border border-primary-light py-3 text-center text-2xl font-medium capitalize duration-300 hover:bg-primary-light hover:text-light-100 dark:border-primary-dark hover:dark:bg-primary-dark hover:dark:text-dark-100">
         {formatCategory(category)}
       </p>
     </Link>

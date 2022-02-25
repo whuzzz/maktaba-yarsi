@@ -28,9 +28,15 @@ export const formatPublish = (string) => {
   return string.split(' ')[3];
 };
 
+export const navigateHandler = (event, callback) => {
+  if (event.key === 'Enter' || event?.type === 'click') {
+    callback();
+  }
+};
+
 export const previousPage = (route, index) => (
   <Fragment key={index}>
-    <li className="cursor-pointer capitalize hover:underline hover:decoration-2 hover:underline-offset-1 dark:hover:decoration-green-500">
+    <li className="cursor-pointer capitalize hover:underline hover:decoration-primary-light hover:decoration-2 hover:underline-offset-1 dark:hover:decoration-primary-dark">
       <Link href={`/${route.link}`} passHref>
         <p type="button">{route.title}</p>
       </Link>

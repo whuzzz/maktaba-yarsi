@@ -13,7 +13,7 @@ export default function MyDocument() {
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <body className="bg-white antialiased dark:bg-slate-900">
+      <body className="bg-light-100 antialiased dark:bg-dark-100">
         <Main />
         <NextScript />
       </body>

@@ -1,21 +1,16 @@
 import { useDispatch } from 'react-redux';
-import { totalSkip } from '@/common/helpers';
+import { navigateHandler, totalSkip } from '@/common/helpers';
 import { navigateTo } from './book-actions';
+import NestedContent from './nested-content';
 
 function ListContent({ data, item, indent, on }) {
   let { text } = item;
   const dispatch = useDispatch();
   const listStyle = `${indent} ${on(item.page)} ${
     indent >= 0
-      ? 'font-medium text-slate-900 dark:text-slate-200'
-      : ' text-slate-700 dark:text-slate-400'
-  } flex cursor-pointer hover:text-green-600 hover:dark:text-green-500`;
-
-  const navigateHandler = (event) => {
-    if (event.key === 'Enter' || event?.type === 'click') {
-      dispatch(navigateTo(item.page));
-    }
-  };
+      ? 'font-medium text-dark-100 dark:text-light-300'
+      : ' text-dark-300 dark:text-slate-400'
+  } flex cursor-pointer hover:text-primary-light hover:dark:text-primary-dark`;
 
   if (indent >= 0) {
     const substractTOC = totalSkip(data);
@@ -32,28 +27,17 @@ function ListContent({ data, item, indent, on }) {
     });
 
     return (
-      <details className={`${listStyle} space-y-2 marker:text-green-500`} open>
-        <summary>
-          <a
-            role="button"
-            tabIndex="0"
-            href="#!"
-            onClick={navigateHandler}
-            onKeyDown={navigateHandler}
-            className={indent >= 0 ? 'font-medium' : ''}
-          >
-            {text}
-          </a>
-        </summary>
-        <ul className="space-y-2.5 border-l border-dashed border-black/10 pl-8 dark:border-gray-800">
-          {elements}
-        </ul>
-      </details>
+      <NestedContent
+        listStyle={listStyle}
+        eventHandler={(e) => navigateHandler(e, () => dispatch(navigateTo(item.page)))}
+        elements={elements}
+        text={text}
+      />
     );
   }
 
   return (
-    <li className={`${listStyle}`}>
+    <li className={listStyle}>
       <button
         type="button"
         onClick={() => dispatch(navigateTo(item.page))}

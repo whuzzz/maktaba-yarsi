@@ -20,7 +20,7 @@ export default function ListOfBookPage() {
       </Head>
       <PageWrapper>
         <Breadcrumb routes={linkRoutes} />
-        <h1 className="mt-10 mb-14 pt-14 text-center text-5xl font-bold capitalize dark:text-slate-200">
+        <h1 className="mt-10 mb-14 pt-14 text-center text-5xl font-bold capitalize text-dark-200 dark:text-light-200">
           Daftar Buku {categoryTitle}
         </h1>
         <div className="space-y-5 px-20">

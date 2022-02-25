@@ -1,24 +1,19 @@
 import { useRouter } from 'next/router';
+import { navigateHandler } from '@/common/helpers';
 import DetailBook from './detail-book';
 
 export default function ListBooks({ id, info, category }) {
   const router = useRouter();
 
-  const navigateTo = (event) => {
-    if (event.key === 'Enter' || event?.type === 'click') {
-      router.push(`/books/${category}/${id}`);
-    }
-  };
-
   return (
     <div
-      className="group cursor-pointer py-5 pl-6 dark:bg-slate-800"
-      onClick={navigateTo}
-      onKeyDown={navigateTo}
+      className="group cursor-pointer bg-light-300 py-5 pl-6 dark:bg-dark-300"
+      onClick={(e) => navigateHandler(e, () => router.push(`/books/${category}/${id}`))}
+      onKeyDown={(e) => navigateHandler(e, () => router.push(`/books/${category}/${id}`))}
       role="button"
       tabIndex="0"
     >
-      <h2 className="text-xl font-medium duration-150 dark:text-slate-200 dark:group-hover:text-green-500">
+      <h2 className="text-xl font-medium text-dark-300 duration-150 group-hover:text-primary-light dark:text-light-300 dark:group-hover:text-primary-dark">
         {info.title}
       </h2>
       <DetailBook book={info} />
