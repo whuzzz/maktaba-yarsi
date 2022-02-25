@@ -30,11 +30,11 @@
   }
 
   nav > ul > li {
-    @apply cursor-pointer font-medium hover:text-green-600 hover:dark:text-green-500;
+    @apply cursor-pointer font-medium hover:text-primary-light hover:dark:text-primary-dark;
   }
 
   .highlight {
-    @apply font-sans text-xl font-bold text-green-600 dark:text-green-500;
+    @apply font-sans text-xl font-bold text-primary-light dark:text-primary-dark;
   }
 
   .book-page > p {
@@ -44,15 +44,15 @@
   .book-page > p,
   .book-page > q,
   .book-page > summary {
-    @apply hover:text-slate-900 hover:dark:text-slate-300;
+    @apply hover:text-dark-100 hover:dark:text-light-100;
   }
 
   .book-page > h1 {
-    @apply mb-2 block indent-0 text-xl font-bold text-slate-900 dark:text-slate-200;
+    @apply mb-2 block indent-0 text-xl font-bold text-dark-100 dark:text-light-400;
   }
 
   .book-page > strong {
-    @apply block indent-0 text-lg text-slate-900 dark:text-slate-200;
+    @apply block indent-0 text-lg text-dark-100 dark:text-light-400;
   }
 
   .book-page > summary {
@@ -63,7 +63,7 @@
     font-family: LPMQ, 'Traditional Arabic', Tahoma, sans-serif;
     direction: rtl;
     unicode-bidi: embed;
-    @apply ml-auto select-all bg-transparent indent-0 text-2xl leading-[3.5rem] text-slate-800 hover:text-slate-900 dark:text-slate-300 hover:dark:text-slate-100;
+    @apply ml-auto select-all bg-transparent indent-0 text-2xl leading-[3.5rem] text-slate-800 hover:text-dark-100 dark:text-slate-300 hover:dark:text-light-100;
   }
 
   .book-page > ul {
