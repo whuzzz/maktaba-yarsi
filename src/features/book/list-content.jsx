@@ -32,7 +32,7 @@ function ListContent({ data, item, indent, on }) {
     });
 
     return (
-      <details className={`${listStyle} -ml-3.5 space-y-2 marker:text-green-500`} open>
+      <details className={`${listStyle} space-y-2 marker:text-green-500`} open>
         <summary>
           <a
             role="button"
@@ -40,12 +40,14 @@ function ListContent({ data, item, indent, on }) {
             href="#!"
             onClick={navigateHandler}
             onKeyDown={navigateHandler}
-            className={indent >= 0 && 'font-medium'}
+            className={indent >= 0 ? 'font-medium' : ''}
           >
             {text}
           </a>
         </summary>
-        <ul className="ml-8 space-y-2">{elements}</ul>
+        <ul className="space-y-2.5 border-l border-dashed border-black/10 pl-8 dark:border-gray-800">
+          {elements}
+        </ul>
       </details>
     );
   }
@@ -55,7 +57,7 @@ function ListContent({ data, item, indent, on }) {
       <button
         type="button"
         onClick={() => dispatch(navigateTo(item.page))}
-        className={`${indent >= 0 && '!font-medium'} text-left`}
+        className={`${indent >= 0 ? '!font-medium' : ''} text-left`}
       >
         {text}
       </button>
