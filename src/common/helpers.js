@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { Fragment } from 'react';
-import { FORMAT_BREADCRUMB, INDENT_LEVEL } from './constant';
-import { ListContent } from '@/features/book';
+import { FORMAT_BREADCRUMB } from './constant';
 
 export const totalSkip = (data) => data.filter((table) => table?.head).length;
 
@@ -39,18 +38,6 @@ export const previousPage = (route, index) => (
     {FORMAT_BREADCRUMB}
   </Fragment>
 );
-
-export const renderSubTables = (content, html, level, currentPage) => {
-  if (content) {
-    const indent = INDENT_LEVEL[level];
-
-    content.forEach((item) => {
-      const key = `sub-${item.page}-${item.text}-${level}`;
-      html.push(<ListContent key={key} item={item} indent={indent} on={currentPage} />);
-      renderSubTables(item?.sub, html, level + 1, currentPage);
-    });
-  }
-};
 
 export const getData = async (url) => {
   const res = await fetch(url);

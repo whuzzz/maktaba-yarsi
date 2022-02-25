@@ -1,19 +1,13 @@
 {
   "compilerOptions": {
-    "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@public/*": ["public/*"]
-    },
-    "include": ["**/*.js", "**/*.jsx"],
-    "exclude": ["node_modules"]
+    }
   }
 }
