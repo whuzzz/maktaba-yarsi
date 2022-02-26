@@ -48,5 +48,7 @@ export const getStaticProps = wrapper.getStaticProps(
     async ({ params: { category } }) => {
       await store.dispatch(getCategory(category));
       await store.dispatch(setRoutes(category));
+
+      return { revalidate: 60 };
     }
 );

@@ -32,4 +32,6 @@ export default function CategoriyBooksPage() {
 
 export const getStaticProps = wrapper.getStaticProps((store) => async () => {
   await store.dispatch(getCategories());
+
+  return { revalidate: 60 };
 });

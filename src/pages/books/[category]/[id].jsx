@@ -56,5 +56,7 @@ export const getStaticProps = wrapper.getStaticProps(
   (store) =>
     async ({ params: { id, category } }) => {
       await store.dispatch(getBook(id, category));
+
+      return { revalidate: 60 };
     }
 );
