@@ -40,7 +40,7 @@ export async function getStaticPaths() {
     params: { category },
   }));
 
-  return { paths, fallback: false };
+  return { paths, fallback: 'blocking' };
 }
 
 export const getStaticProps = wrapper.getStaticProps(

@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: () => ({
-        hero: "url('https://tailwindcss.com/_next/static/media/hero-dark@90.dba36cdf.jpg')",
+        hero: "url('/bg-hero.webp')",
       }),
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
