@@ -1,8 +1,9 @@
 import Head from 'next/head';
-import { BackgroundImage, PageWrapper } from '@/common/components';
+import { NextPage } from 'next';
 import SearchInput from '@/common/components/search-input';
+import { BackgroundImage, PageWrapper } from '@/common/components';
 
-export default function HomePage() {
+const HomePage: NextPage = () => {
   return (
     <>
       <Head>
@@ -24,4 +25,5 @@ export default function HomePage() {
       <BackgroundImage />
     </>
   );
-}
+};
+export default HomePage;

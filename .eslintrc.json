@@ -31,27 +31,26 @@
     "ecmaFeatures": {
       "jsx": true
     },
-    "ecmaVersion": 12,
     "sourceType": "module"
   },
   "rules": {
-    "prettier/prettier": "error",
-    "no-unused-vars": "warn",
-    "react/style-prop-object": "off",
-    "no-console": "warn",
-    "react/prop-types": "off",
-    "import/no-unresolved": "off",
-    "import/extensions": "off",
-    "react/no-array-index-key": "off",
-    "jsx-a11y/href-no-hash": ["off"],
-    "react/jsx-props-no-spreading": "off",
-    "no-use-before-define": ["error", { "variables": false }],
-    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
-    "react-hooks/exhaustive-deps": [
-      "warn",
-      {
-        "additionalHooks": "(useMyCustomHook|useMyOtherCustomHook)"
-      }
-    ]
+    // "prettier/prettier": "error",
+    // "no-unused-vars": "warn",
+    // "react/style-prop-object": "off",
+    // "no-console": "warn",
+    // "react/prop-types": "off",
+    // "import/no-unresolved": "off",
+    // "import/extensions": "off",
+    // "react/no-array-index-key": "off",
+    // "jsx-a11y/href-no-hash": ["off"],
+    // "react/jsx-props-no-spreading": "off",
+    // "no-use-before-define": ["error", { "variables": false }],
+    // "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    // "react-hooks/exhaustive-deps": [
+    //   "warn",
+    //   {
+    //     "additionalHooks": "(useMyCustomHook|useMyOtherCustomHook)"
+    //   }
+    // ]
   }
 }

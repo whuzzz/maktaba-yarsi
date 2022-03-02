@@ -1,3 +1,4 @@
+import type { AppProps } from 'next/app';
 import NProgress from 'nprogress';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
@@ -6,7 +7,7 @@ import wrapper from '@/app/store';
 import '@/styles/globals.css';
 import '@/styles/nprogress.css';
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
