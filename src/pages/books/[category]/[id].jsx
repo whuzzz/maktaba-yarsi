@@ -6,6 +6,7 @@ import { getData, unFormatCategory } from '@/common/helpers';
 import wrapper from '@/app/store';
 import API_CONFIG from '@/common/constant';
 import { getBook } from '@/features/book/book-actions';
+import SearchInput from '@/common/components/search-input';
 
 export default function DetailBookPage() {
   const { page, book } = useSelector((state) => state.book);
@@ -33,7 +34,10 @@ export default function DetailBookPage() {
         <div className="ml-auto w-9/12 px-20 pb-20 dark:bg-slate-900">
           <Breadcrumb style="mt-6 ml-0" routes={routes} />
           <HeaderInfo book={book} />
-          <NavigationsButton />
+          <div className="relative mt-10">
+            <SearchInput className="!absolute left-0 bottom-0 w-48" />
+            <NavigationsButton />
+          </div>
           <DisplayContent content={text} />
           <NavigationsButton />
           <Footer className="mt-20" />

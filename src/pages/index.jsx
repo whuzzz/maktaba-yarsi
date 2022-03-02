@@ -14,7 +14,7 @@ export default function HomePage() {
           Yarsi Digital Islamic Library
         </h1>
         <p className="mx-auto mt-8 text-center text-lg lg:w-8/12">
-          Sebuah perpustakaan islam digital berbahasa indonesia yang memungkinkan pengguna untuk
+          Sebuah perpustakaan islam digital berbahasa Indonesia yang memungkinkan pengguna untuk
           mencari topik atau permasalah berdasarkan kata kunci seperti{' '}
           <span className="highlight">iman</span>, <span className="highlight">sabar</span>,{' '}
           <span className="highlight">shalat</span> dan <span className="highlight">riba</span>.
