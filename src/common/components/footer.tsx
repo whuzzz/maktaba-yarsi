@@ -1,5 +1,6 @@
-function Footer({ className }) {
+const Footer = ({ className }: { className: string }) => {
   const currentYear = new Date().getFullYear();
+
   return (
     <footer
       className={`${className} flex items-center justify-between border-t border-black/10 pt-10 pr-5 text-sm text-slate-400 dark:border-gray-800 dark:text-slate-500`}
@@ -37,6 +38,6 @@ function Footer({ className }) {
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

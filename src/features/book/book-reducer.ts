@@ -1,3 +1,4 @@
+import { AnyAction } from 'redux';
 import {
   GET_BOOK,
   GET_BOOKS,
@@ -17,7 +18,7 @@ const initialState = {
 };
 
 // eslint-disable-next-line default-param-last
-const bookReducer = (state = initialState, action) => {
+const bookReducer = (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case GET_BOOK: {
       const book = action.payload;

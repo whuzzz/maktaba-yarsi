@@ -8,7 +8,7 @@ import API_CONFIG from '@/common/constant';
 import { getBook } from '@/features/book/book-actions';
 import SearchInput from '@/common/components/search-input';
 
-export default function DetailBookPage() {
+const DetailBookPage = () => {
   const { page, book } = useSelector((state) => state.book);
   const { text } = book.content.find((item) => item.page === page);
   const routes = [
@@ -45,7 +45,7 @@ export default function DetailBookPage() {
       </main>
     </>
   );
-}
+};
 
 export async function getStaticPaths() {
   const booksId = await getData(API_CONFIG.GET_BOOKS);
@@ -64,3 +64,5 @@ export const getStaticProps = wrapper.getStaticProps(
       return { revalidate: 60 };
     }
 );
+
+export default DetailBookPage;

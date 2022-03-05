@@ -11,7 +11,7 @@ export default function ListBooks({ id, info, category }) {
       onClick={(e) => navigateHandler(e, () => router.push(`/books/${category}/${id}`))}
       onKeyDown={(e) => navigateHandler(e, () => router.push(`/books/${category}/${id}`))}
       role="button"
-      tabIndex="0"
+      tabIndex={0}
     >
       <h2 className="text-xl font-medium text-dark-300 duration-150 group-hover:text-primary-light dark:text-light-300 dark:group-hover:text-primary-dark">
         {info.title}

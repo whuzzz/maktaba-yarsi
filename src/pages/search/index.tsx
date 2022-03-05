@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-function SearchPage() {
+const SearchPage = () => {
   return (
     <>
       <Head>
@@ -10,6 +10,6 @@ function SearchPage() {
       <main className="pt-14 text-white">F</main>
     </>
   );
-}
+};
 
 export default SearchPage;

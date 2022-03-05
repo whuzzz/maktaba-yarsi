@@ -7,7 +7,7 @@ import { formatCategory, getData } from '@/common/helpers';
 import { getCategory, setRoutes } from '@/features/book/book-actions';
 import ListBooks from '@/features/book/list-books';
 
-export default function ListOfBookPage() {
+const ListOfBookPage = () => {
   const { category, routes } = useSelector((state) => state.book);
   const categoryTitle = formatCategory(routes);
   const linkRoutes = [{ title: 'categories', link: 'books/categories' }, { title: categoryTitle }];
@@ -32,7 +32,7 @@ export default function ListOfBookPage() {
       <BackgroundImage />
     </>
   );
-}
+};
 
 export async function getStaticPaths() {
   const categories = await getData(API_CONFIG.GET_CATEGORIES);
@@ -52,3 +52,5 @@ export const getStaticProps = wrapper.getStaticProps(
       return { revalidate: 60 };
     }
 );
+
+export default ListOfBookPage;

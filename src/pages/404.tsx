@@ -2,8 +2,9 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { FaRegSadTear } from 'react-icons/fa';
 import { PageWrapper } from '@/common/components';
+import { NextPage } from 'next';
 
-export default function ErrorPage() {
+const ErrorPage: NextPage = () => {
   const router = useRouter();
 
   return (
@@ -27,4 +28,6 @@ export default function ErrorPage() {
       </PageWrapper>
     </>
   );
-}
+};
+
+export default ErrorPage;

@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, AnyAction } from 'redux';
 import { createWrapper, HYDRATE } from 'next-redux-wrapper';
 import thunkMiddleware from 'redux-thunk';
 import reducers from './reducers';
@@ -15,7 +15,7 @@ const bindMiddleware = (middleware) => {
   return applyMiddleware(...middleware);
 };
 
-const reducer = (state, action) => {
+const reducer = (state, action: AnyAction) => {
   if (action.type === HYDRATE) {
     return { ...state, ...action.payload };
   }

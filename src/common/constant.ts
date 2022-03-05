@@ -5,9 +5,9 @@ export const BASE_URL =
 
 const API_CONFIG = {
   GET_BOOKS: `${BASE_URL}books`,
-  GET_BOOK: (id, c) => `${BASE_URL}books?bookId=${id}&category=${c}`,
+  GET_BOOK: (id: string, c: string) => `${BASE_URL}books?bookId=${id}&category=${c}`,
   GET_CATEGORIES: `${BASE_URL}books/categories`,
-  GET_CATEGORY: (category) => `${BASE_URL}books/category/${category}`,
+  GET_CATEGORY: (category: string) => `${BASE_URL}books/category/${category}`,
 };
 
 export const FORMAT_BREADCRUMB = '\xa0\xa0/\xa0\xa0';

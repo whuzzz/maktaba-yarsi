@@ -2,7 +2,7 @@ import { MdNavigateNext, MdLastPage } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
 import { navigateTo } from '@/features/book/book-actions';
 
-function NavigationsButton({ style }) {
+const NavigationsButton = ({ style }: { style: string }) => {
   const dispatch = useDispatch();
   const { book, page } = useSelector((state) => state.book);
 
@@ -34,6 +34,6 @@ function NavigationsButton({ style }) {
       />
     </div>
   );
-}
+};
 
 export default NavigationsButton;

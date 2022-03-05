@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Fragment } from 'react';
 import { FORMAT_BREADCRUMB } from '../constant';
 
-function Breadcrumb({ style, routes = [] }) {
+const Breadcrumb = ({ style, routes = [] }) => {
   const previousPage = (route, index) => (
     <Fragment key={index}>
       <li className="cursor-pointer capitalize hover:underline hover:decoration-primary-light hover:decoration-2 hover:underline-offset-1 dark:hover:decoration-primary-dark">
@@ -33,6 +33,6 @@ function Breadcrumb({ style, routes = [] }) {
       </ul>
     </div>
   );
-}
+};
 
 export default Breadcrumb;

@@ -34,16 +34,35 @@
     "sourceType": "module"
   },
   "rules": {
+    "react/require-default-props": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "react/jsx-props-no-spreading": "off"
+    // "react/style-prop-object": "off"
     // "prettier/prettier": "error",
     // "no-unused-vars": "warn",
-    // "react/style-prop-object": "off",
     // "no-console": "warn",
     // "react/prop-types": "off",
     // "import/no-unresolved": "off",
     // "import/extensions": "off",
     // "react/no-array-index-key": "off",
     // "jsx-a11y/href-no-hash": ["off"],
-    // "react/jsx-props-no-spreading": "off",
     // "no-use-before-define": ["error", { "variables": false }],
     // "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
     // "react-hooks/exhaustive-deps": [

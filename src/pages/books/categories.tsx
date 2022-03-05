@@ -5,7 +5,7 @@ import { BackgroundImage, Breadcrumb, PageWrapper } from '@/common/components';
 import { ListCategories } from '@/features/book';
 import { getCategories } from '@/features/book/book-actions';
 
-export default function CategoriyBooksPage() {
+const CategoriyBooksPage = () => {
   const { categories } = useSelector((state) => state.book);
 
   return (
@@ -28,10 +28,12 @@ export default function CategoriyBooksPage() {
       <BackgroundImage />
     </>
   );
-}
+};
 
 export const getStaticProps = wrapper.getStaticProps((store) => async () => {
   await store.dispatch(getCategories());
 
   return { revalidate: 60 };
 });
+
+export default CategoriyBooksPage;

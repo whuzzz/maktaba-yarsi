@@ -1,6 +1,11 @@
+import { NextApiRequest } from 'next';
 import { NextResponse } from 'next/server';
 
-export default function middleware(req) {
+type NextApiRequestWithNextUrl = NextApiRequest & {
+  nextUrl: object;
+};
+
+export default function middleware(req: NextApiRequestWithNextUrl) {
   if (!req.nextUrl.search) {
     return NextResponse.redirect('/');
   }
