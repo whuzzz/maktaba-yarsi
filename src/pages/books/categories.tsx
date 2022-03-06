@@ -1,13 +1,13 @@
 import Head from 'next/head';
-import { useSelector } from 'react-redux';
-import wrapper from '@/app/store';
 import { BackgroundImage, Breadcrumb, PageWrapper } from '@/common/components';
 import { ListCategories } from '@/features/book';
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
+import { Categories } from '@/common/types/index.model';
 import { getCategories } from '@/features/book/book-actions';
 
-const CategoriyBooksPage = () => {
-  const { categories } = useSelector((state) => state.book);
-
+const CategoriyBooksPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  categories,
+}) => {
   return (
     <>
       <Head>
@@ -20,7 +20,7 @@ const CategoriyBooksPage = () => {
           Kategori Buku Islam
         </h1>
         <div className="mx-auto grid w-max grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {categories.map(({ category }) => (
+          {categories.map(({ category }: Categories) => (
             <ListCategories key={category} category={category} />
           ))}
         </div>
@@ -30,10 +30,10 @@ const CategoriyBooksPage = () => {
   );
 };
 
-export const getStaticProps = wrapper.getStaticProps((store) => async () => {
-  await store.dispatch(getCategories());
+export const getStaticProps: GetStaticProps = async () => {
+  const categoriesBook = await getCategories();
 
-  return { revalidate: 60 };
-});
+  return { props: { categories: categoriesBook }, revalidate: 60 };
+};
 
 export default CategoriyBooksPage;

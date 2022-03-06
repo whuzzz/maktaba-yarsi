@@ -5,7 +5,7 @@ import { FaGithub } from 'react-icons/fa';
 import { NAV_LIST } from '../constant';
 import { addDarkColorScheme } from '../helpers';
 
-function Navbar() {
+const Navbar = () => {
   const [isDarkMode, toggleDarkMode] = useDarkMode({ element: 'html' });
   useEffect(addDarkColorScheme, [isDarkMode, toggleDarkMode]);
 
@@ -44,6 +44,6 @@ function Navbar() {
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

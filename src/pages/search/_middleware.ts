@@ -2,7 +2,7 @@ import { NextApiRequest } from 'next';
 import { NextResponse } from 'next/server';
 
 type NextApiRequestWithNextUrl = NextApiRequest & {
-  nextUrl: object;
+  nextUrl: { search: string };
 };
 
 export default function middleware(req: NextApiRequestWithNextUrl) {

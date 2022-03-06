@@ -1,6 +1,9 @@
+import { FunctionComponent } from 'react';
 import { BiSearch } from 'react-icons/bi';
 
-export default function SearchInput({ className = 'max-w-lg mx-auto' }) {
+const SearchInput: FunctionComponent<{ className: string }> = ({
+  className = 'max-w-lg mx-auto',
+}) => {
   return (
     <div
       className={`${className} relative mt-8 overflow-hidden rounded-md border border-black/20 dark:border-0`}
@@ -20,4 +23,6 @@ export default function SearchInput({ className = 'max-w-lg mx-auto' }) {
       </button>
     </div>
   );
-}
+};
+
+export default SearchInput;

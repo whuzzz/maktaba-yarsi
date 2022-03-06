@@ -1,6 +1,12 @@
 import { formatPublish } from '@/common/helpers';
+import { BookInfo } from '@/common/types/index.model';
+import { FunctionComponent } from 'react';
 
-export default function DetailBook({ book }) {
+type DetailBookProps = {
+  book: BookInfo;
+};
+
+const DetailBook: FunctionComponent<DetailBookProps> = ({ book }) => {
   return (
     <dl>
       <div className="my-1 inline-flex items-center text-center">
@@ -28,4 +34,6 @@ export default function DetailBook({ book }) {
       </div>
     </dl>
   );
-}
+};
+
+export default DetailBook;

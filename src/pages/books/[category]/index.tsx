@@ -1,15 +1,18 @@
 import Head from 'next/head';
-import { useSelector } from 'react-redux';
-import wrapper from '@/app/store';
 import { BackgroundImage, Breadcrumb, PageWrapper } from '@/common/components';
 import API_CONFIG from '@/common/constant';
 import { formatCategory, getData } from '@/common/helpers';
-import { getCategory, setRoutes } from '@/features/book/book-actions';
+import { getCategory } from '@/features/book/book-actions';
 import ListBooks from '@/features/book/list-books';
+import { Book, Categories } from '@/common/types/index.model';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
+import { ParsedUrlQuery } from 'querystring';
 
-const ListOfBookPage = () => {
-  const { category, routes } = useSelector((state) => state.book);
-  const categoryTitle = formatCategory(routes);
+const ListOfBookPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  listOfBook,
+  category,
+}) => {
+  const categoryTitle = formatCategory(category);
   const linkRoutes = [{ title: 'categories', link: 'books/categories' }, { title: categoryTitle }];
 
   return (
@@ -24,8 +27,8 @@ const ListOfBookPage = () => {
           Daftar Buku {categoryTitle}
         </h1>
         <div className="space-y-5 px-20">
-          {category.map(({ id, info }) => (
-            <ListBooks key={id} id={id} info={info} category={routes} />
+          {listOfBook.map(({ id, info }: Book) => (
+            <ListBooks key={id} id={id} info={info} category={category} />
           ))}
         </div>
       </PageWrapper>
@@ -34,23 +37,29 @@ const ListOfBookPage = () => {
   );
 };
 
-export async function getStaticPaths() {
-  const categories = await getData(API_CONFIG.GET_CATEGORIES);
+interface Params extends ParsedUrlQuery {
+  category: string;
+}
+
+type Props = {
+  listOfBook: Book[];
+  category: string;
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const categories: Categories[] = await getData(API_CONFIG.GET_CATEGORIES);
   const paths = categories.map(({ category }) => ({
     params: { category },
   }));
 
   return { paths, fallback: 'blocking' };
-}
+};
 
-export const getStaticProps = wrapper.getStaticProps(
-  (store) =>
-    async ({ params: { category } }) => {
-      await store.dispatch(getCategory(category));
-      await store.dispatch(setRoutes(category));
+export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
+  const { category } = params!;
+  const categoryBook = await getCategory(category);
 
-      return { revalidate: 60 };
-    }
-);
+  return { props: { listOfBook: categoryBook, category }, revalidate: 60 };
+};
 
 export default ListOfBookPage;

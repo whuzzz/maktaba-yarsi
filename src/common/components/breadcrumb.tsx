@@ -1,8 +1,13 @@
 import Link from 'next/link';
-import { Fragment } from 'react';
+import { Fragment, FunctionComponent } from 'react';
 import { FORMAT_BREADCRUMB } from '../constant';
 
-const Breadcrumb = ({ style, routes = [] }) => {
+type BreadcrumbProps = {
+  style?: string;
+  routes: { title: string }[];
+};
+
+const Breadcrumb: FunctionComponent<BreadcrumbProps> = ({ style, routes = [] }) => {
   const previousPage = (route, index) => (
     <Fragment key={index}>
       <li className="cursor-pointer capitalize hover:underline hover:decoration-primary-light hover:decoration-2 hover:underline-offset-1 dark:hover:decoration-primary-dark">

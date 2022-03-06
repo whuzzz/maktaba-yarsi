@@ -1,16 +1,26 @@
+/* eslint-disable react/prop-types */
 import Head from 'next/head';
-import { useSelector } from 'react-redux';
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { Breadcrumb, Footer, NavigationsButton } from '@/common/components';
 import { DisplayContent, HeaderInfo, TableOfContents } from '@/features/book';
 import { getData, unFormatCategory } from '@/common/helpers';
-import wrapper from '@/app/store';
-import API_CONFIG from '@/common/constant';
 import { getBook } from '@/features/book/book-actions';
+import { Book, Content } from '@/common/types/index.model';
+import { ParsedUrlQuery } from 'querystring';
+import API_CONFIG from '@/common/constant';
 import SearchInput from '@/common/components/search-input';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { setBook } from '@/features/book/books-slice';
 
-const DetailBookPage = () => {
-  const { page, book } = useSelector((state) => state.book);
-  const { text } = book.content.find((item) => item.page === page);
+const DetailBookPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  specificBook,
+}) => {
+  // Data Fetching...
+  const dispatch = useAppDispatch();
+  dispatch(setBook(specificBook));
+
+  const { book, page } = useAppSelector((state) => state.books);
+  const { text } = book.content.find((item) => item.page === page) as Content;
   const routes = [
     { title: 'categories', link: 'books/categories' },
     {
@@ -47,22 +57,28 @@ const DetailBookPage = () => {
   );
 };
 
-export async function getStaticPaths() {
-  const booksId = await getData(API_CONFIG.GET_BOOKS);
+interface Params extends ParsedUrlQuery {
+  id: string;
+  category: string;
+}
+
+type Props = {
+  specificBook: Book;
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const booksId: { id: string; category: string }[] = await getData(API_CONFIG.GET_BOOKS);
   const paths = booksId.map(({ id, category }) => ({
     params: { id, category },
   }));
 
   return { paths, fallback: 'blocking' };
-}
+};
 
-export const getStaticProps = wrapper.getStaticProps(
-  (store) =>
-    async ({ params: { id, category } }) => {
-      await store.dispatch(getBook(id, category));
+export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
+  const specificBook = await getBook(params!.id, params!.category);
 
-      return { revalidate: 60 };
-    }
-);
+  return { props: { specificBook }, revalidate: 60 };
+};
 
 export default DetailBookPage;

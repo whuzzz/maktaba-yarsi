@@ -1,4 +1,22 @@
-export default function NestedContent({ listStyle, eventHandler, indent, text, elements }) {
+import React, { FunctionComponent, ReactElement } from 'react';
+
+type NestedContentProps = {
+  listStyle: string;
+  eventHandler: (
+    e: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<HTMLAnchorElement>
+  ) => void;
+  indent: number;
+  text: string;
+  elements: ReactElement[];
+};
+
+const NestedContent: FunctionComponent<NestedContentProps> = ({
+  listStyle,
+  eventHandler,
+  indent,
+  text,
+  elements,
+}) => {
   return (
     <details
       className={`${listStyle} space-y-2 marker:text-primary-light dark:marker:text-primary-dark`}
@@ -7,10 +25,10 @@ export default function NestedContent({ listStyle, eventHandler, indent, text, e
       <summary>
         <a
           role="button"
-          tabIndex="0"
+          tabIndex={0}
           href="#!"
-          onClick={eventHandler}
-          onKeyDown={eventHandler}
+          onClick={(e) => eventHandler(e)}
+          onKeyDown={(e) => eventHandler(e)}
           className={indent >= 0 ? 'font-medium' : ''}
         >
           {text}
@@ -21,4 +39,6 @@ export default function NestedContent({ listStyle, eventHandler, indent, text, e
       </ul>
     </details>
   );
-}
+};
+
+export default NestedContent;

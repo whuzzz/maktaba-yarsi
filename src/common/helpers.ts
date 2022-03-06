@@ -1,13 +1,15 @@
-export const totalSkip = (data: []) => data.filter((table) => table?.head).length;
+import React from 'react';
+import { Outline } from './types/index.model';
 
-export const truncate = (word: string, length: number = 10) =>
-  word.substring(0, length).concat('...');
+export const totalSkip = (data: Outline[]) => data.filter((table) => table?.head).length;
+
+export const truncate = (word: string, length = 10) => word.substring(0, length).concat('...');
 
 export const addDarkColorScheme = () => {
   const rootElement = document.querySelector('html.dark');
 
   if (rootElement) {
-    (rootElement as HTMLDivElement).style.colorScheme = 'dark';
+    (rootElement as HTMLElement).style.colorScheme = 'dark';
   } else {
     (document.querySelector('html') as HTMLElement).style.colorScheme = 'light';
   }
@@ -25,8 +27,11 @@ export const formatPublish = (text: string) => {
   return text.split(' ')[3];
 };
 
-export const navigateHandler = (event: KeyboardEvent, callback: () => void) => {
-  if (event.key === 'Enter' || event.type === 'click') {
+export const navigateHandler = (
+  event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>,
+  callback: () => void
+) => {
+  if ((event instanceof KeyboardEvent && event.key === 'Enter') || event.type === 'click') {
     callback();
   }
 };

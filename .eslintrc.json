@@ -8,13 +8,15 @@
     "prettier",
     "airbnb/hooks",
     "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:@next/next/recommended",
     "plugin:react-hooks/recommended",
     "plugin:react/recommended",
     "plugin:react/jsx-runtime"
   ],
-  "plugins": ["react"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["react", "@typescript-eslint"],
   "settings": {
     "react": {
       "version": "detect"
@@ -34,6 +36,8 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-use-before-define": "off",
+    "no-param-reassign": ["error", { "props": false }],
     "react/require-default-props": "off",
     "react/function-component-definition": [
       2,
@@ -53,7 +57,9 @@
         "tsx": "never"
       }
     ],
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "react/style-prop-object": "off"
     // "react/style-prop-object": "off"
     // "prettier/prettier": "error",
     // "no-unused-vars": "warn",

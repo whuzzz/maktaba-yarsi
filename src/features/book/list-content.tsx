@@ -1,11 +1,20 @@
-import { useDispatch } from 'react-redux';
 import { navigateHandler, totalSkip } from '@/common/helpers';
-import { navigateTo } from './book-actions';
+import { useAppDispatch } from '@/app/hooks';
+import { FunctionComponent, ReactElement } from 'react';
+import { Outline } from '@/common/types/index.model';
+import { setPage } from './books-slice';
 import NestedContent from './nested-content';
 
-function ListContent({ data, item, indent, on }) {
+type ListContentProps = {
+  data: Outline[];
+  item: Outline;
+  indent: number;
+  on: (page: number) => string;
+};
+
+const ListContent: FunctionComponent<ListContentProps> = ({ data, item, indent, on }) => {
   let { text } = item;
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const listStyle = `${indent} ${on(item.page)} ${
     indent >= 0
       ? 'font-medium text-dark-100 dark:text-light-300'
@@ -20,7 +29,7 @@ function ListContent({ data, item, indent, on }) {
   }
 
   if (item?.sub) {
-    const elements = [];
+    const elements: ReactElement[] = [];
     item.sub.forEach((content) => {
       const key = `sub-${content.page}-${content.text}`;
       elements.push(<ListContent key={key} data={data} item={content} indent={-1} on={on} />);
@@ -29,8 +38,9 @@ function ListContent({ data, item, indent, on }) {
     return (
       <NestedContent
         listStyle={listStyle}
-        eventHandler={(e) => navigateHandler(e, () => dispatch(navigateTo(item.page)))}
+        eventHandler={(e) => navigateHandler(e, () => dispatch(setPage(item.page)))}
         elements={elements}
+        indent={indent}
         text={text}
       />
     );
@@ -40,13 +50,13 @@ function ListContent({ data, item, indent, on }) {
     <li className={listStyle}>
       <button
         type="button"
-        onClick={() => dispatch(navigateTo(item.page))}
+        onClick={() => dispatch(setPage(item.page))}
         className={`${indent >= 0 ? '!font-medium' : ''} text-left`}
       >
         {text}
       </button>
     </li>
   );
-}
+};
 
 export default ListContent;

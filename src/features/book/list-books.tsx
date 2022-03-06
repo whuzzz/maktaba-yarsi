@@ -1,8 +1,16 @@
 import { useRouter } from 'next/router';
 import { navigateHandler } from '@/common/helpers';
+import { FunctionComponent } from 'react';
+import { BookInfo } from '@/common/types/index.model';
 import DetailBook from './detail-book';
 
-export default function ListBooks({ id, info, category }) {
+type ListBooksProps = {
+  id: string;
+  info: BookInfo;
+  category: string;
+};
+
+const ListBooks: FunctionComponent<ListBooksProps> = ({ id, info, category }) => {
   const router = useRouter();
 
   return (
@@ -19,4 +27,6 @@ export default function ListBooks({ id, info, category }) {
       <DetailBook book={info} />
     </div>
   );
-}
+};
+
+export default ListBooks;
