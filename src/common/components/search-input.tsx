@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { BiSearch } from 'react-icons/bi';
 
-const SearchInput: FunctionComponent<{ className: string }> = ({
+const SearchInput: FunctionComponent<{ className?: string }> = ({
   className = 'max-w-lg mx-auto',
 }) => {
   return (
