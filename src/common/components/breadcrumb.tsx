@@ -8,11 +8,11 @@ type BreadcrumbProps = {
 };
 
 const Breadcrumb: FunctionComponent<BreadcrumbProps> = ({ style, routes = [] }) => {
-  const previousPage = (route, index) => (
+  const previousPage = (route: { title: string; link?: string }, index: number) => (
     <Fragment key={index}>
       <li className="cursor-pointer capitalize hover:underline hover:decoration-primary-light hover:decoration-2 hover:underline-offset-1 dark:hover:decoration-primary-dark">
         <Link href={`/${route.link}`} passHref>
-          <p type="button">{route.title}</p>
+          <p>{route.title}</p>
         </Link>
       </li>
       {FORMAT_BREADCRUMB}
