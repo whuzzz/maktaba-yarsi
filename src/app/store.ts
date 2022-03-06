@@ -1,29 +1,11 @@
-import { createStore, applyMiddleware, AnyAction } from 'redux';
-import { createWrapper, HYDRATE } from 'next-redux-wrapper';
-import thunkMiddleware from 'redux-thunk';
-import reducers from './reducers';
+import { booksReducer } from '@/features/book';
+import { configureStore } from '@reduxjs/toolkit';
 
-// eslint-disable-next-line import/no-extraneous-dependencies
-const reduxDevtools = require('redux-devtools-extension');
+export const store = configureStore({
+  reducer: {
+    books: booksReducer,
+  },
+});
 
-const bindMiddleware = (middleware) => {
-  if (process.env.NODE_ENV !== 'production') {
-    const { composeWithDevTools } = reduxDevtools;
-    return composeWithDevTools(applyMiddleware(...middleware));
-  }
-
-  return applyMiddleware(...middleware);
-};
-
-const reducer = (state, action: AnyAction) => {
-  if (action.type === HYDRATE) {
-    return { ...state, ...action.payload };
-  }
-
-  return reducers(state, action);
-};
-
-const initStore = () => createStore(reducer, bindMiddleware([thunkMiddleware]));
-
-// export an assembled wrapper
-export default createWrapper(initStore);
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
