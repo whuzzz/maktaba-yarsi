@@ -1,5 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-
 module.exports = {
   darkMode: 'class',
   content: ['./src/pages/**/*.tsx', './src/common/**/*.{ts,tsx}', './src/features/**/*.tsx'],
@@ -9,8 +7,8 @@ module.exports = {
         hero: "url('/bg-hero.webp')",
       }),
       fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
         poppins: 'Poppins, sans-serif',
+        LPMQ: ['LPMQ Isep Misbah', 'Traditional Arabic', 'Tahoma', 'sans-serif'],
       },
       colors: {
         primary: {

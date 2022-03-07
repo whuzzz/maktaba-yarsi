@@ -26,7 +26,7 @@ export const booksSlice = createSlice({
       const book = action.payload;
       const firstPage = book.content[0].page;
 
-      state.page = firstPage;
+      state.page = 19;
       state.book = book;
     },
     setBooks: (state, action: PayloadAction<Book[]>) => {

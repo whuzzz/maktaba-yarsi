@@ -34,7 +34,7 @@
   }
 
   .highlight {
-    @apply font-sans text-xl font-bold text-primary-light dark:text-primary-dark;
+    @apply text-xl font-bold text-primary-light dark:text-primary-dark;
   }
 
   .book-page > p {
@@ -60,10 +60,9 @@
   }
 
   .book-page > p[dir='rtl'] {
-    font-family: LPMQ, 'Traditional Arabic', Tahoma, sans-serif;
     direction: rtl;
     unicode-bidi: embed;
-    @apply ml-auto select-all bg-transparent indent-0 text-2xl leading-[3.5rem] text-slate-800 hover:text-dark-100 dark:text-slate-300 hover:dark:text-light-100;
+    @apply ml-auto select-all bg-transparent indent-0 font-LPMQ text-2xl leading-[3.5rem] text-slate-800 hover:text-dark-100 dark:text-slate-300 hover:dark:text-light-100;
   }
 
   .book-page > ul {
@@ -78,13 +77,60 @@
     @apply mb-3 block select-all text-justify italic;
   }
 
+  /* LPMQ Font */
   @font-face {
-    font-family: 'LPMQ';
-    src: url('https://uminabdillah.github.io/fonts/lpmq.eot');
-    src: url('https://uminabdillah.github.io/fonts/lpmq.eot?#iefix') format('embedded-opentype'),
-      url('https://uminabdillah.github.io/fonts/lpmq.ttf') format('truetype');
+    font-family: 'LPMQ Isep Misbah';
+    src: url('/fonts/LPMQ.woff2') format('woff2'), url('/fonts/LPMQ.woff') format('woff');
     font-weight: 400;
-    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  /* Poppins Font */
+  /*
+  */
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-400.woff2') format('woff2'),
+      url('/fonts/poppins-400.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-500.woff2') format('woff2'),
+      url('/fonts/poppins-500.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-600.woff2') format('woff2'),
+      url('/fonts/poppins-600.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-700.woff2') format('woff2'),
+      url('/fonts/poppins-700.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    src: url('/fonts/poppins-800.woff2') format('woff2'),
+      url('/fonts/poppins-800.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
     font-display: swap;
   }
 }
