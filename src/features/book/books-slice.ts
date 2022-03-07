@@ -26,8 +26,10 @@ export const booksSlice = createSlice({
       const book = action.payload;
       const firstPage = book.content[0].page;
 
-      state.page = 19;
-      state.book = book;
+      if (state.page !== firstPage) {
+        state.page = firstPage;
+        state.book = book;
+      }
     },
     setBooks: (state, action: PayloadAction<Book[]>) => {
       const books = action.payload;
@@ -42,12 +44,13 @@ export const booksSlice = createSlice({
     setPage: (state, action: PayloadAction<number>) => {
       const book = state.book.content;
       let page = action.payload;
+
       if (page > book[book.length - 1].page) {
         page = book[book.length - 1].page;
       } else if (page < book[0].page || Number.isNaN(page)) {
         page = book[0].page;
       }
-      // console.log(page);
+
       state.page = page;
     },
   },

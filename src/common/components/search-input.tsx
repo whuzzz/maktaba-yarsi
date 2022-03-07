@@ -9,7 +9,7 @@ const SearchInput: FunctionComponent<{ className?: string }> = ({
       className={`${className} relative mt-8 overflow-hidden rounded-md border border-black/20 dark:border-0`}
     >
       <input
-        className=" w-full bg-light-200 py-3 px-6 pr-20 outline-none placeholder:font-semibold placeholder:text-dark-300 hover:bg-light-300 dark:bg-dark-200 placeholder:dark:text-light-300 hover:dark:bg-dark-300"
+        className=" w-full cursor-pointer bg-light-200 py-3 px-6 pr-20 outline-none placeholder:font-semibold placeholder:text-dark-300 hover:bg-light-300 dark:bg-dark-200 placeholder:dark:text-light-300 hover:dark:bg-dark-300"
         type="text"
         name="search"
         placeholder="Cari kata..."

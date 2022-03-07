@@ -12,7 +12,7 @@ const HomePage: NextPage = () => {
       </Head>
       <PageWrapper>
         <h1 className="mt-20 text-center font-extrabold text-dark-100 dark:text-light-100 lg:text-7xl">
-          Yarsi Digital Islamic Library
+          YARSI Digital Islamic Library
         </h1>
         <p className="mx-auto mt-8 text-center text-lg lg:w-8/12">
           Sebuah perpustakaan islam digital berbahasa Indonesia yang memungkinkan pengguna untuk

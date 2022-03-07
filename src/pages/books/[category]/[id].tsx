@@ -1,25 +1,34 @@
-/* eslint-disable react/prop-types */
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import { Breadcrumb, Footer, NavigationsButton } from '@/common/components';
+import { Breadcrumb, Footer, Loading, NavigationsButton } from '@/common/components';
 import { DisplayContent, HeaderInfo, TableOfContents } from '@/features/book';
 import { getData, unFormatCategory } from '@/common/helpers';
 import { getBook } from '@/features/book/book-actions';
 import { Book, Content } from '@/common/types/index.model';
 import { ParsedUrlQuery } from 'querystring';
-import API_CONFIG from '@/common/constant';
-import SearchInput from '@/common/components/search-input';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { setBook } from '@/features/book/books-slice';
+import API_CONFIG from '@/common/constant';
+import SearchInput from '@/common/components/search-input';
 
 const DetailBookPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   specificBook,
-}) => {
+}: Props) => {
+  const [loading, setLoading] = useState(true);
+
   // Data Fetching...
   const dispatch = useAppDispatch();
-  dispatch(setBook(specificBook));
-
   const { book, page } = useAppSelector((state) => state.books);
+  useEffect(() => {
+    dispatch(setBook(specificBook));
+    setLoading(false);
+  }, [dispatch, specificBook]);
+
+  if (loading) {
+    return <Loading />;
+  }
+
   const { text } = book.content.find((item) => item.page === page) as Content;
   const routes = [
     { title: 'categories', link: 'books/categories' },

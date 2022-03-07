@@ -34,7 +34,7 @@
   }
 
   .highlight {
-    @apply text-xl font-bold text-primary-light dark:text-primary-dark;
+    @apply text-xl font-semibold tracking-tight text-primary-light dark:text-primary-dark;
   }
 
   .book-page > p {
@@ -44,7 +44,7 @@
   .book-page > p,
   .book-page > q,
   .book-page > summary {
-    @apply hover:text-dark-100 hover:dark:text-light-100;
+    @apply hover:text-dark-100 hover:dark:text-light-300;
   }
 
   .book-page > h1 {
@@ -59,7 +59,7 @@
     @apply mb-3 list-none text-justify;
   }
 
-  .book-page > p[dir='rtl'] {
+  .book-page p[dir='rtl'] {
     direction: rtl;
     unicode-bidi: embed;
     @apply ml-auto select-all bg-transparent indent-0 font-LPMQ text-2xl leading-[3.5rem] text-slate-800 hover:text-dark-100 dark:text-slate-300 hover:dark:text-light-100;
