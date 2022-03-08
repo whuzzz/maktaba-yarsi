@@ -15,6 +15,11 @@ export const addDarkColorScheme = () => {
   }
 };
 
+export const showModal = () => {
+  const appRoot = document.getElementById('__next');
+  (appRoot as HTMLDivElement).classList.add('blur-sm');
+};
+
 export const formatCategory = (text: string) => {
   return text.replace(/-/g, ' ').replace('dan', '&');
 };

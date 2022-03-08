@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { BackgroundImage, Breadcrumb, PageWrapper } from '@/common/components';
 import API_CONFIG from '@/common/constant';
 import { formatCategory, getData } from '@/common/helpers';
-import { getCategory } from '@/features/book/book-actions';
 import ListBooks from '@/features/book/list-books';
 import { Book, Categories } from '@/common/types/index.model';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
@@ -57,7 +56,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
   const { category } = params!;
-  const categoryBook = await getCategory(category);
+  const categoryBook: Book[] = await getData(API_CONFIG.GET_CATEGORY(category));
 
   return { props: { listOfBook: categoryBook, category }, revalidate: 60 };
 };

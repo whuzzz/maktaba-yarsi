@@ -6,12 +6,6 @@ import ListCategories from './list-categories';
 import ListContent from './list-content';
 import TableOfContents from './table-of-contents';
 
-export {
-  DisplayContent,
-  TableOfContents,
-  HeaderInfo,
-  ListCategories,
-  ListContent,
-  ListBooks,
-  booksReducer,
-};
+export { DisplayContent, TableOfContents, HeaderInfo, ListCategories, ListContent, ListBooks };
+
+export default booksReducer;

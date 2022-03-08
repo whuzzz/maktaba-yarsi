@@ -59,7 +59,8 @@
     ],
     "react/jsx-props-no-spreading": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
-    "react/style-prop-object": "off"
+    "react/style-prop-object": "off",
+    "jsx-a11y/control-has-associated-label": "off"
     // "react/style-prop-object": "off"
     // "prettier/prettier": "error",
     // "no-unused-vars": "warn",

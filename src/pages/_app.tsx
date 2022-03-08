@@ -1,12 +1,12 @@
 import NProgress from 'nprogress';
 import { AppProps } from 'next/app';
+import { Provider } from 'react-redux';
 import { useRouter } from 'next/router';
 import { FunctionComponent, useEffect } from 'react';
-import { Navbar } from '@/common/components';
-import { Provider } from 'react-redux';
+import { Navbar, SearchModal } from '@/common/components';
+import { store } from '@/app/store';
 import '@/styles/globals.css';
 import '@/styles/nprogress.css';
-import { store } from '@/app/store';
 
 const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -29,8 +29,11 @@ const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <Provider store={store}>
-      <Navbar />
-      <Component {...pageProps} />
+      <div id="__app">
+        <Navbar />
+        <Component {...pageProps} />
+      </div>
+      <SearchModal />
     </Provider>
   );
 };

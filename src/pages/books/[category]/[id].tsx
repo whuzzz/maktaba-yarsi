@@ -4,7 +4,6 @@ import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } fro
 import { Breadcrumb, Footer, Loading, NavigationsButton } from '@/common/components';
 import { DisplayContent, HeaderInfo, TableOfContents } from '@/features/book';
 import { getData, unFormatCategory } from '@/common/helpers';
-import { getBook } from '@/features/book/book-actions';
 import { Book, Content } from '@/common/types/index.model';
 import { ParsedUrlQuery } from 'querystring';
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
@@ -85,7 +84,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 export const getStaticProps: GetStaticProps<Props, Params> = async ({ params }) => {
-  const specificBook = await getBook(params!.id, params!.category);
+  const specificBook: Book = await getData(API_CONFIG.GET_BOOK(params!.id, params!.category));
 
   return { props: { specificBook }, revalidate: 60 };
 };

@@ -1,4 +1,3 @@
-import type { RootState } from '@/app/store';
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Book, Categories } from '@/common/types/index.model';
 
@@ -57,10 +56,4 @@ export const booksSlice = createSlice({
 });
 
 export const { setBook, setBooks, setCategories, setPage } = booksSlice.actions;
-export const selectBooks = (state: RootState) => state.books.books;
-export const selectBook = (state: RootState) => state.books.book;
-export const selectCategories = (state: RootState) => state.books.categories;
-export const selectCategory = (state: RootState) => state.books.category;
-export const selectPage = (state: RootState) => state.books.page;
-
 export default booksSlice.reducer;

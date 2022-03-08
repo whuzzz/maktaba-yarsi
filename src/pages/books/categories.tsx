@@ -3,7 +3,8 @@ import { BackgroundImage, Breadcrumb, PageWrapper } from '@/common/components';
 import { ListCategories } from '@/features/book';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { Categories } from '@/common/types/index.model';
-import { getCategories } from '@/features/book/book-actions';
+import { getData } from '@/common/helpers';
+import API_CONFIG from '@/common/constant';
 
 const CategoriyBooksPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   categories,
@@ -31,7 +32,7 @@ const CategoriyBooksPage: NextPage<InferGetStaticPropsType<typeof getStaticProps
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const categoriesBook = await getCategories();
+  const categoriesBook: Categories[] = await getData(API_CONFIG.GET_CATEGORIES);
 
   return { props: { categories: categoriesBook }, revalidate: 60 };
 };
