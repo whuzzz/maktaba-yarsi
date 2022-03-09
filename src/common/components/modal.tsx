@@ -1,12 +1,20 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { useAppDispatch, useAppSelector } from '@/app/hooks';
 import { closeModal } from '@/features/search/search-slice';
+import { useEffect, useRef } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { IoClose } from 'react-icons/io5';
 
 const SearchModal = () => {
+  const searchInput = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
   const { showModal } = useAppSelector((state) => state.search);
+
+  useEffect(() => {
+    if (searchInput.current) {
+      searchInput.current.focus();
+    }
+  }, [showModal]);
 
   return (
     <>
@@ -24,6 +32,7 @@ const SearchModal = () => {
               type="search"
               aria-label="Cari kata"
               placeholder="Cari kata..."
+              ref={searchInput}
             />
           </div>
           <IoClose
@@ -35,10 +44,10 @@ const SearchModal = () => {
       <div
         className={`${
           showModal ? 'block' : 'hidden'
-        } absolute top-0 min-h-screen w-full bg-black opacity-20`}
+        } fixed top-0 left-0 h-full w-full bg-black opacity-20`}
         onClick={() => dispatch(closeModal())}
         role="button"
-        tabIndex={0}
+        tabIndex={-1}
       />
     </>
   );

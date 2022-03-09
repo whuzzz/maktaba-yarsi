@@ -7,6 +7,7 @@ import { Navbar, SearchModal } from '@/common/components';
 import { store } from '@/app/store';
 import '@/styles/globals.css';
 import '@/styles/nprogress.css';
+import { ThemeProvider } from 'next-themes';
 
 const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter();
@@ -28,13 +29,15 @@ const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
   }, [router]);
 
   return (
-    <Provider store={store}>
-      <div id="__app">
-        <Navbar />
-        <Component {...pageProps} />
-      </div>
-      <SearchModal />
-    </Provider>
+    <ThemeProvider attribute="class" defaultTheme="system">
+      <Provider store={store}>
+        <div id="__app">
+          <Navbar />
+          <Component {...pageProps} />
+        </div>
+        <SearchModal />
+      </Provider>
+    </ThemeProvider>
   );
 };
 

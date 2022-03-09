@@ -80,7 +80,7 @@
   /* LPMQ Font */
   @font-face {
     font-family: 'LPMQ Isep Misbah';
-    src: url('/fonts/LPMQ.woff2') format('woff2'), url('/fonts/LPMQ.woff') format('woff');
+    src: url('/fonts/lpmq.woff2') format('woff2'), url('/fonts/lpmq.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;

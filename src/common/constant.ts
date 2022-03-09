@@ -24,4 +24,6 @@ export const NAV_LIST = [
   { list: 'books', route: '/books/categories' },
 ];
 
+export const THEME_LIST = ['light', 'dark', 'system'];
+
 export default API_CONFIG;

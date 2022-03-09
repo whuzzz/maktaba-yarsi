@@ -5,16 +5,6 @@ export const totalSkip = (data: Outline[]) => data.filter((table) => table?.head
 
 export const truncate = (word: string, length = 10) => word.substring(0, length).concat('...');
 
-export const addDarkColorScheme = () => {
-  const rootElement = document.querySelector('html.dark');
-
-  if (rootElement) {
-    (rootElement as HTMLElement).style.colorScheme = 'dark';
-  } else {
-    (document.querySelector('html') as HTMLElement).style.colorScheme = 'light';
-  }
-};
-
 export const showModal = () => {
   const appRoot = document.getElementById('__next');
   (appRoot as HTMLDivElement).classList.add('blur-sm');
