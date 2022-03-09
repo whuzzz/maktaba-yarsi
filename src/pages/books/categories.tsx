@@ -21,7 +21,7 @@ const CategoriyBooksPage: NextPage<InferGetStaticPropsType<typeof getStaticProps
           Kategori Buku Islam
         </h1>
         <div className="mx-auto grid w-max grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
-          {categories.map(({ category }: Categories) => (
+          {categories.categories.map(({ category }: Categories) => (
             <ListCategories key={category} category={category} />
           ))}
         </div>

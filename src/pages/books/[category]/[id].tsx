@@ -75,8 +75,8 @@ type Props = {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const booksId: { id: string; category: string }[] = await getData(API_CONFIG.GET_BOOKS);
-  const paths = booksId.map(({ id, category }) => ({
+  const { data } = await getData(API_CONFIG.GET_BOOKS);
+  const paths = data.map(({ id, category }: { id: string; category: string }) => ({
     params: { id, category },
   }));
 

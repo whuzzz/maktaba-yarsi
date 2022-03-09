@@ -1,11 +1,11 @@
 import Head from 'next/head';
-import { BackgroundImage, Breadcrumb, PageWrapper } from '@/common/components';
-import API_CONFIG from '@/common/constant';
-import { formatCategory, getData } from '@/common/helpers';
-import ListBooks from '@/features/book/list-books';
-import { Book, Categories } from '@/common/types/index.model';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import { ParsedUrlQuery } from 'querystring';
+import { BackgroundImage, Breadcrumb, PageWrapper } from '@/common/components';
+import { formatCategory, getData } from '@/common/helpers';
+import { Book } from '@/common/types/index.model';
+import API_CONFIG from '@/common/constant';
+import ListBooks from '@/features/book/list-books';
 
 const ListOfBookPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
   listOfBook,
@@ -46,8 +46,8 @@ type Props = {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const categories: Categories[] = await getData(API_CONFIG.GET_CATEGORIES);
-  const paths = categories.map(({ category }) => ({
+  const categories = await getData(API_CONFIG.GET_CATEGORIES);
+  const paths = categories.categories.map(({ category }: { category: string }) => ({
     params: { category },
   }));
 
