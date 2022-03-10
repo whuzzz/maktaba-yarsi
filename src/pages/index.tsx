@@ -1,9 +1,27 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Head from 'next/head';
-import { NextPage } from 'next';
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import SearchInput from '@/common/components/search-input';
 import { BackgroundImage, PageWrapper } from '@/common/components';
+import { Categories } from '@/common/types/index.model';
+import { getData } from '@/common/helpers';
+import API_CONFIG from '@/common/constant';
+import { useAppDispatch, useAppSelector } from '@/app/hooks';
+import { setCategories } from '@/features/book/books-slice';
+import { useEffect } from 'react';
 
-const HomePage: NextPage = () => {
+const HomePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  categories,
+}: any) => {
+  const dispatch = useAppDispatch();
+  const { categories: categoriesBook } = useAppSelector((state) => state.books);
+
+  useEffect(() => {
+    if (!categoriesBook?.categories) {
+      dispatch(setCategories(categories));
+    }
+  }, [categories, categoriesBook?.categories, dispatch]);
+
   return (
     <>
       <Head>
@@ -26,4 +44,11 @@ const HomePage: NextPage = () => {
     </>
   );
 };
+
 export default HomePage;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const categoriesBook: Categories[] = await getData(API_CONFIG.GET_CATEGORIES);
+
+  return { props: { categories: categoriesBook }, revalidate: 60 };
+};

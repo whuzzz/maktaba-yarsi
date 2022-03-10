@@ -29,7 +29,7 @@ const MyApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
   }, [router]);
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
+    <ThemeProvider attribute="class" defaultTheme="dark">
       <Provider store={store}>
         <div id="__app">
           <Navbar />

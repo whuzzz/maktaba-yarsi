@@ -22,6 +22,8 @@ export const formatPublish = (text: string) => {
   return text.split(' ')[3];
 };
 
+export const isDarkTheme = (theme: string) => (theme === 'dark' ? 'light' : 'dark');
+
 export const navigateHandler = (
   event: React.MouseEvent<Element, MouseEvent> | React.KeyboardEvent<Element>,
   callback: () => void

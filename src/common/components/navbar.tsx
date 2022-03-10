@@ -1,15 +1,10 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { MdDarkMode, MdLightMode, MdOutlineComputer } from 'react-icons/md';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { FaGithub } from 'react-icons/fa';
 import { useTheme } from 'next-themes';
-import { NAV_LIST, THEME_LIST } from '../constant';
-
-const THEME_ICONS = {
-  light: <MdLightMode />,
-  dark: <MdDarkMode />,
-  system: <MdOutlineComputer />,
-} as { [string: string]: JSX.Element };
+import { NAV_LIST } from '../constant';
+import { isDarkTheme } from '../helpers';
 
 const Navbar = () => {
   const [mounted, setMounted] = useState(false);
@@ -37,26 +32,13 @@ const Navbar = () => {
           ))}
         </ul>
         <div className="flex items-center border-l border-black/10 pl-6 dark:border-gray-800">
-          <button type="button">{THEME_ICONS[resolvedTheme]}</button>
-          <ul
-            className="dark:highlight-white/5 absolute top-full right-0 z-50 mt-4 w-36 overflow-hidden rounded-lg bg-white py-1 text-sm font-semibold text-slate-700 shadow-lg ring-1 ring-slate-900/10 dark:bg-slate-800 dark:text-slate-300 dark:ring-0"
-            aria-orientation="vertical"
-            role="listbox"
-            tabIndex={0}
+          <button
+            className="text-2xl text-primary-light dark:text-primary-dark"
+            type="button"
+            onClick={() => setTheme(isDarkTheme(resolvedTheme))}
           >
-            {THEME_LIST.map((color) => (
-              <li
-                key={color}
-                className="flex cursor-pointer items-center py-1 px-2 capitalize"
-                onClick={() => setTheme(color)}
-                onKeyDown={() => setTheme(color)}
-                role="option"
-                aria-selected="true"
-              >
-                {color}
-              </li>
-            ))}
-          </ul>
+            {resolvedTheme === 'dark' ? <MdDarkMode /> : <MdLightMode />}
+          </button>
           <a
             href="https://github.com/ReySuryanom/yaslab"
             target="_blank"
