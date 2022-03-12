@@ -22,6 +22,10 @@ export const formatPublish = (text: string) => {
   return text.split(' ')[3];
 };
 
+export const extractParams = <T extends object[], U extends keyof object>(data: T, key: U) => {
+  return data.reduce((prev, curr) => `${prev},${curr[key]}`, '').substring(1);
+};
+
 export const isDarkTheme = (theme: string) => (theme === 'dark' ? 'light' : 'dark');
 
 export const navigateHandler = (

@@ -9,6 +9,7 @@ const API_CONFIG = {
   GET_BOOK: (id: string, c: string) => `${BASE_URL}books?bookId=${id}&category=${c}`,
   GET_CATEGORIES: `${BASE_URL}books/categories`,
   GET_CATEGORY: (category: string) => `${BASE_URL}books/category/${category}`,
+  GET_SEARCH_TOPIC: (query: string) => `${BASE_URL}books/${query}`,
 };
 
 export const FORMAT_BREADCRUMB = '\xa0\xa0/\xa0\xa0';
@@ -44,6 +45,7 @@ export const selectStyles = (isDark: boolean) => ({
     textTransform: 'capitalize',
     width: '100%',
     border: 0,
+
     boxShadow: 'none',
     '&:focus-within': {
       borderColor: '#10b981',

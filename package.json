@@ -1,7 +1,8 @@
 {
-  "name": "yaslab",
+  "name": "maktaba-yarsi",
   "version": "0.1.0",
   "private": true,
+  "author": "Muhammad Raihan Suryanom<raihansuryanom@gmail.com>",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

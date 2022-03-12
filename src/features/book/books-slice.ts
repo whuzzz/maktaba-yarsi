@@ -3,7 +3,7 @@ import { Book, Categories } from '@/common/types/index.model';
 
 interface BooksSliceState {
   books: Book[];
-  categories: { string: number; categories: Categories[] };
+  categories: Categories[];
   category: object[];
   book: Book;
   page: number;

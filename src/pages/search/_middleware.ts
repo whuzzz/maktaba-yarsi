@@ -1,13 +1,10 @@
-import { NextApiRequest } from 'next';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-type NextApiRequestWithNextUrl = NextApiRequest & {
-  nextUrl: { search: string };
-};
-
-export default function middleware(req: NextApiRequestWithNextUrl) {
+export default function middleware(req: NextRequest) {
   if (!req.nextUrl.search) {
-    return NextResponse.redirect('/');
+    const url = req.nextUrl.clone();
+    url.pathname = '/';
+    return NextResponse.redirect(url);
   }
 
   return NextResponse.next();
