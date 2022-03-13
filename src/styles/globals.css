@@ -26,7 +26,7 @@
   }
 
   body {
-    @apply font-poppins text-slate-700 selection:bg-cyan-400 selection:text-slate-700 dark:text-slate-400;
+    @apply font-poppins text-slate-700 selection:bg-amber-400 selection:text-slate-700 dark:text-slate-400 dark:selection:bg-cyan-400;
   }
 
   nav > ul > li {
@@ -39,6 +39,10 @@
 
   .book-page > p {
     @apply mb-3 text-justify indent-8;
+  }
+
+  .book-page span {
+    @apply bg-amber-400 text-slate-700 dark:bg-cyan-400;
   }
 
   .book-page > p,
@@ -62,7 +66,7 @@
   .book-page p[dir='rtl'] {
     direction: rtl;
     unicode-bidi: embed;
-    @apply ml-auto select-all bg-transparent indent-0 font-LPMQ text-2xl leading-[3.5rem] text-slate-800 hover:text-dark-100 dark:text-slate-300 hover:dark:text-light-100;
+    @apply ml-auto bg-transparent indent-0 font-LPMQ text-2xl leading-[3.5rem] text-slate-800 hover:text-dark-100 dark:text-slate-300 hover:dark:text-light-100;
   }
 
   .book-page > ul {
@@ -74,7 +78,7 @@
   }
 
   .book-page > q {
-    @apply mb-3 block select-all text-justify italic;
+    @apply mb-3 block text-justify italic;
   }
 
   /* LPMQ Font */

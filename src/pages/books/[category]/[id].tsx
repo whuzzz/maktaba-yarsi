@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import { Breadcrumb, Footer, Loading, NavigationsButton } from '@/common/components';
+import { Breadcrumb, Footer, Loading, NavigationsButton, PageWrapper } from '@/common/components';
 import { DisplayContent, HeaderInfo, TableOfContents } from '@/features/book';
 import { getData, unFormatCategory } from '@/common/helpers';
 import { Book, Content } from '@/common/types/index.model';
@@ -47,7 +47,7 @@ const DetailBookPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
         <meta name="author" content={book.info.author} />
         <meta name="description" content={book.info.desc} />
       </Head>
-      <main className="flex w-full pt-14 text-slate-700 dark:text-slate-400">
+      <PageWrapper style="flex">
         <TableOfContents data={book.tableOfContents} page={page} />
         <div className="ml-auto w-9/12 px-20 pb-20 dark:bg-slate-900">
           <Breadcrumb style="mt-6 ml-0" routes={routes} />
@@ -60,7 +60,7 @@ const DetailBookPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
           <NavigationsButton />
           <Footer className="mt-20" />
         </div>
-      </main>
+      </PageWrapper>
     </>
   );
 };
