@@ -41,7 +41,8 @@
     @apply mb-3 text-justify indent-8;
   }
 
-  .book-page span {
+  .book-page span,
+  tbody span {
     @apply bg-amber-400 text-slate-700 dark:bg-cyan-400;
   }
 

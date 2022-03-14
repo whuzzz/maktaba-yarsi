@@ -42,7 +42,7 @@ const DetailBookPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> =
     <>
       <Head>
         <title>
-          {book.info.title} | {book.info.category}
+          {book.info.title} - {book.info.category}
         </title>
         <meta name="author" content={book.info.author} />
         <meta name="description" content={book.info.desc} />
